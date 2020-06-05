@@ -1,0 +1,44 @@
+.your_select_value_single {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.your_select_multiple_value {
+  margin: 1px;
+  font-size: 12px;
+
+  .your_select_multiple_value_label {
+    padding: 3px 6px;
+  }
+
+  .your_select_clear {
+    font-size: 10px;
+    padding: 6px;
+  }
+}
+
+.your_select_search_input {
+  padding: 6px;
+}
+
+.your_select_options_warn {
+  padding: 0 5px;
+  text-align: center;
+  font-weight: 100;
+  font-size: 10px;
+  font-style: italic;
+  user-select: none;
+}
+
+.your_form_control-select-option {
+  margin: 2px 0;
+  padding: 10px;
+  cursor: pointer;
+
+  &.disabled {
+    background: transparent;
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

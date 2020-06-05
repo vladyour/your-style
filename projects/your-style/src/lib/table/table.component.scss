@@ -1,0 +1,49 @@
+:host {
+  display: block;
+  position: relative;
+  overflow: scroll;
+}
+
+.your-table {
+  border-collapse: collapse;
+}
+
+.your-table-header-cell {
+  padding: 15px 10px;
+  border-bottom: none;
+}
+
+.your-table-filter-cell {
+  padding: 0;
+  border-top: none;
+}
+
+.your-table-result-cell {
+  white-space: nowrap;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.your-table-input {
+  background: none;
+  width: 100%;
+  padding: 8px;
+  font-size: 12px;
+  border: none;
+  outline: none;
+}
+
+.sort {
+  display: none;
+  vertical-align: middle;
+
+  .sort-icon {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+
+    &.asc {
+      transform: rotateX(180deg);
+    }
+  }
+}

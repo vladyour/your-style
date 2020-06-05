@@ -1,0 +1,31 @@
+@import "config";
+
+.your_drop_down_content {
+  position: absolute;
+  overflow: scroll;
+  z-index: 100;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 0;
+
+  transition: max-height 250ms ease-in-out;
+
+  .your_drop_drown_body {
+    margin: 2px;
+  }
+}
+
+@mixin drop_drown_style($style) {
+  .your_drop_down_content {
+    border-radius: map_get($style, border_radius);
+    box-shadow: map_get($style, box_shadow);
+  }
+}
+
+@mixin drop_down_theme($theme) {
+  .your_drop_down_content {
+    $scheme: get_color_scheme($theme, back);
+    background: lighten(get_color($scheme), 4);
+  }
+}

@@ -1,0 +1,43 @@
+@import 'badge';
+@import 'button';
+@import 'calendar';
+@import "card";
+@import "checkbox";
+@import "drop-down-menu";
+@import 'flex-box';
+@import 'font';
+@import "form-field";
+@import "info-box";
+@import 'link';
+@import "main";
+@import 'padding-and-margin';
+@import "tab";
+@import "table";
+
+@mixin yourStyle($style) {
+
+  @include badge_style($style);
+  @include button_style($style);
+  @include card_style($style);
+  @include checkbox_style($style);
+  @include drop_drown_style($style);
+  @include font_style($style);
+  @include form_field_style($style);
+  @include info_box_style($style);
+  @include padding_and_margin_style($style);
+}
+
+@mixin theme($theme) {
+  @include badge_theme($theme);
+  @include button_theme($theme);
+  @include card_theme($theme);
+  @include calendar_theme($theme);
+  @include checkbox_theme($theme);
+  @include drop_down_theme($theme);
+  @include form_field_theme($theme);
+  @include info_box_theme($theme);
+  @include link_theme($theme);
+  @include body_theme($theme);
+  @include tab_theme($theme);
+  @include table_theme($theme);
+}

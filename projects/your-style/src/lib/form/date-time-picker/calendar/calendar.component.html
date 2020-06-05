@@ -1,0 +1,36 @@
+  <div yourFlexBox="horizontal" hAlignment="space-between" vAlignment="center" class="your_calendar-header">
+
+    <span
+      yourFlexBox="horizontal" flexInline vAlignment="center" hAlignment="center"
+      class="your_calendar-header-arrow" (click)="updateSelectedMonth(-1)">
+      <i class="fas fa-angle-left"></i>
+    </span>
+
+    <div>{{getSelectedMonthName()}}</div>
+    <div>{{getSelectedYear()}}</div>
+
+    <span
+      yourFlexBox="horizontal" flexInline vAlignment="center" hAlignment="center"
+      class="your_calendar-header-arrow" (click)="updateSelectedMonth(1)">
+      <i class="fas fa-angle-right"></i>
+    </span>
+
+  </div>
+
+  <div yourFlexBox="vertical" class="your_calendar-body">
+
+    <div class="your_calendar-days_of_week" yourFlexBox="horizontal" hAlignment="space-between">
+      <span *ngFor="let day of daysOfWeek" class="your_calendar-day_of_week">{{day}}</span>
+    </div>
+
+    <div *ngFor="let week of selectedMonthView" yourFlexBox="horizontal" hAlignment="space-between">
+
+      <div *ngFor="let date of week" (click)="selectDate(date)"
+           yourFlexBox="horizontal" flexInline vAlignment="center" hAlignment="center"
+           class="your_calendar-date" [ngClass]="{'dif_month': isDifferentMonth(date), 'selected': isSelected(date)}"
+      >
+        {{getDate(date)}}
+      </div>
+
+    </div>
+  </div>

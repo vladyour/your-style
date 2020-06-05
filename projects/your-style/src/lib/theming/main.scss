@@ -1,0 +1,35 @@
+@import "config";
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  font-weight: 100;
+}
+
+.hidden {
+  display: none;
+}
+
+.scrollable {
+  overflow: scroll;
+}
+
+@mixin body_theme($theme) {
+  body {
+    $scheme: get_color_scheme($theme, back);
+
+    $background: get_color($scheme);
+    $background2: lighten($background, 12.55);
+    background: get_gradient_background($background, $background2, 45deg, no-repeat, fixed);
+
+    color: get_color($scheme, f);
+  }
+}
+
+@function get_gradient_background($color1, $color2, $deg: 90deg, $repeat: inherit, $position: inherit) {
+  @return linear-gradient($deg, $color1, $color2) $repeat $position;
+}

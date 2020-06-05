@@ -1,0 +1,83 @@
+@import "config";
+@import "select";
+
+@mixin form_field_style($style) {
+  your-form-field {
+    border-radius: map_get($style, border_radius);
+
+    @include size_style($style);
+    @include label_style();
+    @include options_style($style);
+  }
+}
+
+@mixin form_field_theme($theme) {
+  your-form-field {
+    $scheme: get_color_scheme($theme, back);
+    background: transparentize(darken(get_color($scheme), 10), 0.6);
+    color: get_color($scheme, f);
+
+    @include options_theme($theme);
+  }
+}
+
+@mixin size_style($style) {
+  $size_config: get_config($style, form_config);
+  $default_size_config_name: map_get($style, default_form_config);
+
+  font-size: get_config_prop($size_config, $default_size_config_name, font_size);
+  [yourInput], .your_form_field {
+    outline: none;
+    padding: get_config_prop($size_config, $default_size_config_name, padding);
+  }
+
+  your-label, .your_form_field_icon {
+    padding: get_config_prop($size_config, $default_size_config_name, label_padding);
+  }
+
+  @each $size_config_name in get_config_names($size_config) {
+    &.your-form-field-size-#{$size_config_name} {
+
+      font-size: get_config_prop($size_config, $size_config_name, font_size);
+      [yourInput], .your_form_field {
+        padding: get_config_prop($size_config, $size_config_name, padding);
+      }
+
+      your-label, .your_form_field_icon {
+        padding: get_config_prop($size_config, $size_config_name, label_padding);
+      }
+    }
+  }
+}
+
+@mixin label_style() {
+  your-label, .your_form_field_icon {
+    position: absolute;
+    font-size: inherit;
+    top: 0;
+    transition: all 250ms ease-in-out;
+    opacity: 0.5;
+  }
+
+  your-label {
+    transform-origin: top left;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .your_form_field_icon {
+    transform-origin: top right;
+    right: 0;
+  }
+
+  &.focused, &.filled {
+    your-label, .your_form_field_icon {
+      padding: 8px;
+      transform: scale(0.7);
+    }
+  }
+
+  &.focused your-label {
+    opacity: 1;
+  }
+}

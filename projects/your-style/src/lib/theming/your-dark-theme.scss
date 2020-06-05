@@ -1,0 +1,62 @@
+@import "theme";
+
+$font: #d9d9d9;
+
+$back: #232323;
+$back_scheme: (
+  n: $back,
+  d: darken($back, 5),
+  h: darken($back, 3),
+  f: $font
+);
+
+$default: #4a88bf;
+$default_scheme: (
+  n: $default,
+  d: darken(desaturate($default, 20), 10),
+  h: lighten($default, 4),
+  f: $font,
+);
+
+$secondary: #3d3fac;
+$secondary_scheme: (
+  n: $secondary,
+  d: darken(desaturate($secondary, 20), 10),
+  h: lighten($secondary, 4),
+  f: $font,
+);
+
+$success: #1a956a;
+$success_scheme: (
+  n: $success,
+  d: darken(desaturate($success, 40), 10),
+  h: lighten($success, 4),
+  f: $font,
+);
+
+$warn: #FF9800;
+$warn_scheme: (
+  n: $warn,
+  d: darken(desaturate($warn, 40), 10),
+  h: lighten($warn, 4),
+  f: $font,
+);
+
+$error: #e3400e;
+$error_scheme: (
+  n: $error,
+  d: darken(desaturate($error, 40), 10),
+  h: lighten($error, 4),
+  f: $font,
+);
+
+$dark-theme: (
+  back: $back_scheme,
+  secondary: $secondary_scheme,
+  default: $default_scheme,
+  success: $success_scheme,
+  warn: $warn_scheme,
+  error: $error_scheme,
+);
+
+@include theme($dark-theme);

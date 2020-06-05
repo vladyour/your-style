@@ -1,0 +1,12 @@
+<div class="your_tab_group-header">
+  <div
+    *ngFor="let label of labels"
+    (click)="displayTab(label)"
+    class="your_tab_group-header-label" [ngClass]="{'active': currentLabel == label}"
+  >
+    {{label}}
+  </div>
+</div>
+<div class="your_tab_group_wrapper">
+  <ng-content select="your-tab"></ng-content>
+</div>

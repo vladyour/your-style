@@ -1,0 +1,47 @@
+@import "config";
+
+.your-info-box {
+  width: fit-content;
+  font-style: italic;
+  border-style: solid;
+  border-width: 1px;
+}
+
+@mixin info_box_style($style) {
+  .your-info-box {
+    border-radius: map_get($style, border_radius);
+
+    $info_box_size_config: get_config($style, info_box_size_config);
+    $default_info_box_size_config_name: map_get($style, default_info_box_size_config_name);
+
+    font-size: get_config_prop($info_box_size_config, $default_info_box_size_config_name, font_size);
+    padding: get_config_prop($info_box_size_config, $default_info_box_size_config_name, padding);
+    margin: get_config_prop($info_box_size_config, $default_info_box_size_config_name, margin);
+    @each $size_name in get_config_names($info_box_size_config) {
+      &.info-box-size-#{$size_name} {
+        font-size: get_config_prop($info_box_size_config, $size_name, font_size);
+        padding: get_config_prop($info_box_size_config, $size_name, padding);
+        margin: get_config_prop($info_box_size_config, $size_name, margin);
+      }
+    }
+  }
+}
+
+@mixin info_box_theme($theme) {
+  .your-info-box {
+    $default_scheme: get_color_scheme($theme);
+
+    background: transparentize(get_color($default_scheme), 0.3);
+    border-color: get_color($default_scheme);
+    color: get_color($default_scheme, f);
+
+    @each $scheme_name in get_schemes_names($theme) {
+      &.info-box-color-#{$scheme_name} {
+        $scheme: get_color_scheme($theme, $scheme_name);
+        background: transparentize(get_color($scheme), 0.7);
+        border-color: get_color($scheme);
+        color: get_color($scheme, f);
+      }
+    }
+  }
+}

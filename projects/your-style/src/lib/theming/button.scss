@@ -1,0 +1,164 @@
+@import "config";
+
+[yourButton] {
+  display: inline-block;
+  vertical-align: top;
+  margin: 1px;
+  text-decoration: none;
+  line-height: 1.2em;
+  box-shadow: none;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+
+  border-style: solid;
+  border-width: 1px;
+
+  &.borderless {
+    border-color: transparent;
+  }
+
+  &.transparent {
+    background: transparent;
+
+    &[disabled], &.disabled {
+      background: transparent;
+    }
+  }
+
+  transition-property: box-shadow, transform, background, color, border-color;
+  transition-duration: 150ms;
+
+  &:active {
+    box-shadow: none;
+  }
+
+  &[disabled], &.disabled {
+    cursor: not-allowed;
+    box-shadow: none;
+    border-color: transparent;
+    text-decoration: none;
+  }
+
+  &.square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+
+  &.inline {
+    width: 100%;
+  }
+
+  &.single-in-row {
+    display: block;
+  }
+}
+
+@mixin button_style($style) {
+  [yourButton] {
+    @include btn_size_style($style);
+  }
+}
+
+@mixin btn_size_style($style) {
+  border-radius: map_get($style, border_radius);
+
+  $size_config: get-config($style, size_config);
+  $default_size_config_name: map_get($style, default_button_size);
+
+  @include get_size_style($size_config, $default_size_config_name);
+
+  @each $size_config_name in get_config_names($size_config) {
+    &.your-btn-size-#{$size_config_name} {
+      @include get_size_style($size_config, $size_config_name);
+    }
+  }
+}
+@mixin get_size_style($size_config, $size_config_name) {
+
+  font-size: get_config_prop($size_config, $size_config_name, font_size);
+  $padding: get_config_prop($size_config, $size_config_name, padding);
+  padding: $padding calc(#{$padding} + #{$padding});
+
+  &.square {
+    padding: $padding;
+    width: calc(1.2em + #{$padding} * 2);
+    height: calc(1.2em + #{$padding} * 2);
+  }
+}
+
+
+@mixin button_theme($theme) {
+  [yourButton] {
+    $default_scheme: get_color_scheme($theme);
+    @include certain_button_theme($default_scheme, get_color($default_scheme, f));
+    @each $scheme_name in get_schemes_names($theme) {
+      &.your-btn-color-#{$scheme_name} {
+        @include certain_button_theme(get_color_scheme($theme, $scheme_name), get_color($default_scheme, f));
+      }
+    }
+  }
+}
+
+@mixin certain_button_theme($scheme, $default_font_color) {
+  $normal: get_color($scheme);
+
+  $color: get_color($scheme, f);
+  color: $color;
+
+  &:not(.borderless):not([disabled]):not(.disabled) {
+    border-color: $normal;
+  }
+
+  &:not(.transparent) {
+    background: $normal;
+
+    &[disabled], &.disabled {
+      background: get_color($scheme, d);
+      color: transparentize($color, 0.5);
+    }
+  }
+
+  &.transparent {
+    color: $normal;
+
+    &:not(.borderless):not(.pale) {
+      border-color: $normal;
+    }
+
+    &[disabled], &.disabled {
+      color: transparentize($normal, 0.5);
+
+      &:not(.borderless) {
+        border-color: transparentize($normal, 0.5);
+      }
+    }
+  }
+
+  &.pale {
+
+    color: $default_font_color;
+    &:not(.borderless):not([disabled]):not(.disabled) {
+      border-color: $default_font_color;
+
+      &:hover {
+        border-color: $normal;
+      }
+    }
+
+    &.disabled, &[disabled] {
+      color: transparentize($default_font_color, 0.5);
+    }
+    &:not(.transparent):hover:not(.disabled):not([disabled]) {
+      color: $color;
+    }
+
+    &.transparent {
+      &:hover:not(.disabled):not([disabled]) {
+        color: $normal;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@import "config";
+
+@mixin calendar_theme($theme) {
+  $scheme: get_color_scheme($theme, back);
+
+  $background: get_color($scheme);
+  $color: get_color($scheme, f);
+
+  your-calendar {
+
+    .your_calendar-body {
+      background: $background;
+    }
+
+    .your_calendar-days_of_week {
+      border-bottom: 1px solid transparentize($color, 0.9);
+      color: transparentize($color, 0.7);
+    }
+
+    .your_calendar-header-arrow, .your_calendar-date {
+
+      &:hover {
+        background: darken($background, 5);
+      }
+    }
+
+    .your_calendar-date {
+      color: $color;
+
+      &.dif_month {
+        color: transparentize($color, 0.4);
+      }
+
+      &.selected {
+        border: 1px solid $color;
+      }
+    }
+  }
+}

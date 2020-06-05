@@ -1,0 +1,34 @@
+@import "config";
+@import "main";
+
+@mixin card_style($style) {
+  your-card {
+    box-shadow: map_get($style, box_shadow);
+
+    $size_config: get_config($style, card_config);
+    $default_config_name: map_get($style, default_card_config);
+
+    border-radius: get_config_prop($size_config, $default_config_name, border_radius);
+    padding: get_config_prop($size_config, $default_config_name, padding);
+    margin: get_config_prop($size_config, $default_config_name, margin);
+
+    @each $size_name in get_config_names($size_config) {
+      &.your-card-size-#{$size_name} {
+        border-radius: get_config_prop($size_config, $size_name, border_radius);
+        padding: get_config_prop($size_config, $size_name, padding);
+        margin: get_config_prop($size_config, $size_name, margin);
+      }
+    }
+  }
+}
+
+@mixin card_theme($theme) {
+  $scheme: get_color_scheme($theme, back);
+
+  your-card {
+    $background: get_color($scheme);
+    background: $background;
+
+    color: get_color($scheme, f);
+  }
+}

@@ -1,0 +1,151 @@
+@import "theme";
+
+$size_config: (
+  s: (
+    font_size: 12px,
+    padding: 4px,
+  ),
+  m: (
+    font_size: 14px,
+    padding: 6px,
+  ),
+  l: (
+    font_size: 18px,
+    padding: 10px,
+  )
+);
+
+$card_config: (
+  0: (
+    border_radius: 0,
+    padding: 0,
+    margin: 0
+  ),
+  s: (
+    border_radius: 4px,
+    padding: 2px,
+    margin: 0
+  ),
+  m: (
+    border_radius: 4px,
+    padding: 8px,
+    margin: 0
+  ),
+  l: (
+    border_radius: 16px,
+    padding: 16px,
+    margin: 6px
+  ),
+);
+
+$h_tag_config: (
+  h1: 26px,
+  h2: 22px,
+  h3: 18px,
+  h4: 14px,
+  h5: 12px,
+  h6: 10px
+);
+$font_size_config: (
+  s: 12px,
+  m: 16px,
+  l: 20px
+);
+$badge_config: (
+  s: (
+    font_size: 10px,
+    padding: 2px 4px,
+    margin: 1px
+  ),
+  m: (
+    font_size: 12px,
+    padding: 2px 4px,
+    margin: 1px
+  ),
+  l: (
+    font_size: 16px,
+    padding: 2px 4px,
+    margin: 1px
+  ),
+);
+$info_box_size_config: (
+  s: (
+    font_size: 12px,
+    padding: 8px,
+    margin: 2px,
+  ),
+  m: (
+    font_size: 14px,
+    padding: 8px,
+    margin: 2px,
+  ),
+  l: (
+    font_size: 18px,
+    padding: 8px,
+    margin: 2px,
+  ),
+);
+$padding_config: (
+  0: 0,
+  xs: 3px,
+  sm: 5px,
+  md: 8px,
+  lg: 12px,
+  xl: 18px
+);
+$margin_config: (
+  0: 0,
+  xs: 3px,
+  sm: 5px,
+  md: 8px,
+  lg: 12px,
+  xl: 18px
+);
+$form_config: (
+  s: (
+    padding: 16px 8px 6px,
+    font_size: 12px,
+    label_padding: 11px
+  ),
+  m: (
+    padding: 20px 8px 6px,
+    font_size: 14px,
+    label_padding: 13px
+  ),
+  l: (
+    padding: 24px 10px 8px,
+    font_size: 18px,
+    label_padding: 16px
+  ),
+);
+
+$okko_report_style: (
+  default_card_config: m,
+  card_config: $card_config,
+
+  default_button_size: s,
+
+  size_config: $size_config,
+  default_size_config_name: m,
+
+  h_tag_config: $h_tag_config,
+
+  font_size_config: $font_size_config,
+
+  badge_config: $badge_config,
+  default_badge_config_name: m,
+
+  info_box_size_config: $info_box_size_config,
+  default_info_box_size_config_name: m,
+
+  padding_config: $padding_config,
+  margin_config: $margin_config,
+
+  form_config: $form_config,
+  default_form_config: m,
+
+  border_radius: 4px,
+  box_shadow: -5px 5px 10px 0 transparentize(darken(#232323, 10), 0.7)
+);
+
+@include yourStyle($okko_report_style);

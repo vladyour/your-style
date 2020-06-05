@@ -1,0 +1,12 @@
+@import "config";
+
+a {
+  text-decoration: none;
+}
+
+@mixin link_theme($theme) {
+  $scheme: get_color_scheme($theme);
+  a {
+    color: get_color($scheme, f);
+  }
+}

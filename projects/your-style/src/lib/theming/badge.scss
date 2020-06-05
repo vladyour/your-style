@@ -1,0 +1,38 @@
+@import "config";
+
+@mixin badge_style($style) {
+
+  .your-badge {
+    $badge_config: get_config($style, badge_config);
+    $default_badge_config_name: map_get($style, default_badge_config_name);
+    font-size: get_config_prop($badge_config, $default_badge_config_name, font_size);
+    padding: get_config_prop($badge_config, $default_badge_config_name, padding);
+    margin: get_config_prop($badge_config, $default_badge_config_name, margin);
+    border-radius: map_get($style, border_radius);
+
+    @each $size_name in get_config_names($badge_config) {
+      &.#{$size_name} {
+        font-size: get_config_prop($badge_config, $size_name, font_size);
+        padding: get_config_prop($badge_config, $size_name, padding);
+        margin: get_config_prop($badge_config, $size_name, margin);
+      }
+    }
+  }
+}
+
+@mixin badge_theme($theme) {
+  $default_scheme: get_color_scheme($theme);
+
+  .your-badge {
+    background: get_color($default_scheme);
+    color: get_color($default_scheme, f);
+
+    @each $scheme_name in get_schemes_names($theme) {
+      $scheme: get_color_scheme($theme, $scheme_name);
+      &.#{$scheme_name} {
+        background: get_color($scheme);
+        color: get_color($scheme, f);
+      }
+    }
+  }
+}

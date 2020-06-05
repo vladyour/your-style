@@ -1,0 +1,40 @@
+@import "config";
+
+@mixin padding_and_margin_style($style) {
+  $p_m: (p: padding, m: margin);
+
+  @each $class_name, $property_name in $p_m {
+    $config: get_config($style, #{$property_name}_config);
+    @each $size_name in get_config_names($config) {
+      .#{$class_name}-#{$size_name} {
+        #{$property_name}: map_get($config, $size_name);
+      }
+
+      .#{$class_name}-v-#{$size_name} {
+        #{$property_name}-top: map_get($config, $size_name);
+        #{$property_name}-bottom: map_get($config, $size_name);
+      }
+
+      .#{$class_name}-h-#{$size_name} {
+        #{$property_name}-left: map_get($config, $size_name);
+        #{$property_name}-right: map_get($config, $size_name);
+      }
+
+      .#{$class_name}-t-#{$size_name} {
+        #{$property_name}-top: map_get($config, $size_name);
+      }
+
+      .#{$class_name}-r-#{$size_name} {
+        #{$property_name}-right: map_get($config, $size_name);
+      }
+
+      .#{$class_name}-b-#{$size_name} {
+        #{$property_name}-bottom: map_get($config, $size_name);
+      }
+
+      .#{$class_name}-l-#{$size_name} {
+        #{$property_name}-left: map_get($config, $size_name);
+      }
+    }
+  }
+}

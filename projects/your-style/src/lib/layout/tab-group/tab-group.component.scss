@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.your_tab_group-header {
+  display: flex;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.your_tab_group-header-label {
+  padding: 4px 8px;
+  transition: color 250ms ease-in-out;
+  cursor: pointer;
+}
+
+.your_tab_group_wrapper {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}

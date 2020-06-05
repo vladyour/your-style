@@ -1,0 +1,42 @@
+your-form-field {
+  display: inline-block;
+  vertical-align: top;
+
+  &.inline {
+    width: 100%;
+  }
+
+  position: relative;
+  width: 200px;
+  margin: 2px;
+
+  .your-form-field_value {
+    min-height: 1.2em;
+    width: 100%;
+  }
+
+  .your-form-field_clear {
+    display: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0 5px;
+
+    transition: color 150ms ease-in-out;
+  }
+
+  &.filled .your-form-field_clear {
+    display: initial;
+  }
+
+  input, textarea {
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: none;
+  }
+
+  cursor: pointer;
+}

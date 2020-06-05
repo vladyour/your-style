@@ -1,0 +1,55 @@
+@import "config";
+
+@mixin font_style($style) {
+  $config: get_config($style, h_tag_config);
+
+  h1 {
+    font-size: map_get($config, h1);
+    margin: 0;
+    user-select: none;
+  }
+
+  h2 {
+    font-size: map_get($config, h2);
+    margin: 0;
+  }
+
+  h3 {
+    font-size: map_get($config, h3);
+    margin: 0;
+  }
+
+  h4 {
+    font-size: map_get($config, h4);
+    margin: 0;
+  }
+
+  h5 {
+    font-size: map_get($config, h5);
+    font-weight: 100;
+    margin: 0;
+  }
+
+  h6 {
+    font-size: map_get($config, h6);
+    font-weight: 100;
+    margin: 0;
+    display: inline-block;
+  }
+
+  $font_config: get_config($style, font_size_config);
+  @each $size_name in get_config_names($font_config) {
+    .font-size-#{$size_name} {
+      font-size: map_get($font_config, $size_name);
+    }
+  }
+
+  code {
+    white-space: pre-wrap;
+    font-family: monospace!important;
+
+    * {
+      font-family: monospace!important;
+    }
+  }
+}

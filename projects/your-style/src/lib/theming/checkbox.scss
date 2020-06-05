@@ -1,0 +1,26 @@
+@import "config";
+@import "select";
+
+@mixin checkbox_style($style) {
+  $size_config: get_config($style, form_config);
+  $default_size_config_name: map_get($style, default_form_config);
+
+  your-checkbox {
+    font-size: get_config_prop($size_config, $default_size_config_name, font_size);
+
+    .your-checkbox-square {
+      border-radius: map_get($style, border_radius);
+    }
+  }
+}
+
+@mixin checkbox_theme($theme) {
+  your-checkbox {
+    $scheme: get_color_scheme($theme, back);
+
+    color: get_color($scheme, f);
+    .your-checkbox-square {
+      background: transparentize(darken(get_color($scheme), 10), 0.6);
+    }
+  }
+}

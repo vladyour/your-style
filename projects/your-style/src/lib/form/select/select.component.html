@@ -1,0 +1,31 @@
+<div class="your_form_field" yourDropDownTrigger>
+  <div class="your-form-field_value your_select_value_single" *ngIf="!multiple">{{getSelectedLabel(value)}}</div>
+
+  <div class="your-form-field_value" *ngIf="multiple">
+    <div *ngFor="let selected of value; let index = index" class="your_select_multiple_value"
+         yourFlexBox="horizontal" flexInline vAlignment="center" hAlignment="start"
+    >
+      <span class="your_select_multiple_value_label">{{getSelectedLabel(selected)}}</span>
+      <span class="your_select_clear" (click)="deleteSelected($event, index)"><i class="fas fa-times"></i></span>
+    </div>
+  </div>
+
+  <div class="your_form_field_icon">
+    <span class="your-form-field_clear" (click)="clearValue($event)"><i class="fas fa-times"></i></span>
+    <i class="fas fa-caret-down"></i>
+  </div>
+
+  <div yourDropDownMenu>
+    <div class="your_drop_drown_body">
+      <input class="your_select_search_input" [(ngModel)]="searchValue" placeholder="Type to filter">
+      <span *ngIf="!(options | filterSelect: searchValue: filterFunction).length" class="your_select_options_warn">
+        No options found
+      </span>
+      <div class="your_form_control-select-option" [ngClass]="{'disabled': valueHasOption(option)}"
+           *ngFor="let option of options | filterSelect: searchValue: filterFunction" (click)="onOptionSelect(option)"
+      >
+        {{getLabelValue(option)}}
+      </div>
+    </div>
+  </div>
+</div>

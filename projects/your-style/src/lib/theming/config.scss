@@ -1,0 +1,23 @@
+@function get_config($style, $config_name) {
+  @return map_get($style, $config_name);
+}
+
+@function get_config_names($config) {
+  @return map_keys($config);
+}
+
+@function get_config_prop($config, $name, $prop_name) {
+  @return map_get(map_get($config, $name), $prop_name);
+}
+
+@function get_schemes_names($theme) {
+  @return map_keys($theme);
+}
+
+@function get_color_scheme($theme, $scheme_name: default) {
+  @return map_get($theme, $scheme_name);
+}
+
+@function get_color($scheme, $hue: n) {
+  @return map_get($scheme, $hue);
+}

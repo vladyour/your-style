@@ -1,0 +1,22 @@
+:host {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  flex-basis: 100%;
+
+  transform: translate3d(100%, 0, 0);
+  transition: transform 250ms ease-in-out;
+
+  &.active {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 1;
+    flex-grow: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}

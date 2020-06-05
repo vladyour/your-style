@@ -1,0 +1,40 @@
+your-checkbox {
+  user-select: none;
+  cursor: pointer;
+  margin: 1px;
+  display: inline-flex;
+  align-items: center;
+  max-width: 200px;
+}
+
+.your-checkbox-wrapper {
+  position: relative;
+}
+
+.your-checkbox-square {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 25px;
+  min-height: 25px;
+  margin: 2px;
+
+  transition: transform 150ms ease-in-out;
+}
+
+.your-checkbox-checkbox {
+  opacity: 0;
+  transform: scale(0.4);
+
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+
+  &.checked {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.your-checkbox-label {
+  //display: inline-block;
+  padding: 4px;
+}

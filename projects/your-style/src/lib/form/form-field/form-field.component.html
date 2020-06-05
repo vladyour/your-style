@@ -1,0 +1,3 @@
+<your-label *ngIf="!!label">{{label}}</your-label>
+<ng-content *ngIf="!label" select="your-label"></ng-content>
+<ng-content></ng-content>
