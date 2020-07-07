@@ -1,0 +1,47 @@
+<div>
+  <your-card size="l" yourFlexBox="vertical" yourFlexBoxBasis="250px" maxWidth="250px">
+
+    <h3 class="p-b-md">String array</h3>
+    <your-form-field label="Countries">
+      <your-select [options]="plainOptions" [(ngModel)]="selectedPlainMountain"></your-select>
+    </your-form-field>
+
+    <h5 class="p-t-md">
+      Selected value: <b *ngIf="selectedPlainMountain != null; else nothingSelected">{{selectedPlainMountain}}</b>
+    </h5>
+  </your-card>
+
+  <your-card size="l" yourFlexBox="vertical" yourFlexBoxBasis="250px" maxWidth="250px">
+
+    <h3 class="p-b-md">Object array #1</h3>
+    <h5 class="p-b-md">Bound value is id, displayed value is name</h5>
+    <your-form-field label="Countries">
+      <your-select [options]="mountains" [(ngModel)]="selectedIdNameMountain" labelValue="name" bindValue="id"></your-select>
+    </your-form-field>
+
+    <h5 class="p-t-md">
+      Selected value: <b *ngIf="selectedIdNameMountain != null; else nothingSelected">{{selectedIdNameMountain}}</b>
+    </h5>
+
+  </your-card>
+
+  <your-card size="l" yourFlexBox="vertical" yourFlexBoxBasis="250px" maxWidth="250px">
+
+    <h3 class="p-b-md">Object array #2</h3>
+    <h5 class="p-b-md">Bound value is object, displayed value is calculated in input function</h5>
+    <your-form-field label="Countries">
+      <your-select [options]="mountains" [(ngModel)]="selectedMountain" labelValue="name"></your-select>
+    </your-form-field>
+
+    <h5 class="p-t-md">
+      Selected value: <b *ngIf="selectedMountain != null; else nothingSelected">{{selectedMountain | json}}</b>
+    </h5>
+
+  </your-card>
+
+  <ng-template #nothingSelected>
+    <i>Nothing selected</i>
+  </ng-template>
+
+
+</div>

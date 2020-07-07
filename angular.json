@@ -28,7 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "projects/your-style/src/lib/theming/your-dark-theme.scss",
+              "projects/your-style/src/lib/theming/your-default-sizes.scss"
             ],
             "scripts": []
           },
@@ -92,7 +94,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "projects/your-style/src/lib/theming/your-dark-theme.scss",
+              "projects/your-style/src/lib/theming/your-default-sizes.scss"
             ],
             "scripts": []
           }
