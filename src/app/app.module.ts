@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { SelectDemonstrationComponent } from './select-demonstration/select-demonstration.component';
 import {FormModule, LayoutModule} from "your-style";
 import {FormsModule} from "@angular/forms";
+import { BadgeDemonstrationComponent } from './badge-demonstration/badge-demonstration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SelectDemonstrationComponent
+    SelectDemonstrationComponent,
+    BadgeDemonstrationComponent,
   ],
   imports: [
     BrowserModule,

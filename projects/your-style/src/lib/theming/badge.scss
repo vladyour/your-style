@@ -1,5 +1,9 @@
 @import "config";
 
+.your-badge {
+  display: inline-block;
+}
+
 @mixin badge_style($style) {
 
   .your-badge {
