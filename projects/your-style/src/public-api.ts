@@ -21,10 +21,11 @@ export * from './lib/layout/layout.module';
 export * from './lib/layout/card/card.component';
 export * from './lib/layout/tab-group/tab-group.component';
 export * from './lib/layout/tab-group/tab/tab.component';
-export * from './lib/layout/drop-down-menu/drop-down-menu.directive';
+export * from './lib/layout/drop-down-menu/drop-down-area.directive';
 export * from './lib/layout/drop-down-menu/drop-down-trigger.directive';
 export * from './lib/layout/flex-box/flex-box.directive';
 export * from './lib/layout/flex-box/flex-box-basis.directive';
+export * from './lib/layout/confirmation-area/confirmation-area.component';
 
 export * from './lib/core/style-base'
 

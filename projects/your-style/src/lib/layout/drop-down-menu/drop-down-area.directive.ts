@@ -1,9 +1,9 @@
-import {Directive, ElementRef, HostListener, Input, OnInit, Renderer2} from '@angular/core';
+import {Directive, ElementRef, HostListener, OnInit, Renderer2} from '@angular/core';
 
 @Directive({
-  selector: '[yourDropDownMenu]'
+  selector: '[yourDropDownArea]'
 })
-export class DropDownMenuDirective implements OnInit {
+export class DropDownAreaDirective implements OnInit {
 
   private height = '250px';
   element;

@@ -1,13 +1,13 @@
 import {ElementRef, Renderer2, ViewChild} from "@angular/core";
 import {ControlValueAccessor} from "@angular/forms";
-import {DropDownMenuDirective} from "../../layout/drop-down-menu/drop-down-menu.directive";
+import {DropDownAreaDirective} from "../../layout/drop-down-menu/drop-down-area.directive";
 
 export abstract class FormFieldControlWithDropDown implements ControlValueAccessor {
 
   abstract hideMenuOnSelect;
 
-  @ViewChild(DropDownMenuDirective)
-  dropDownMenu: DropDownMenuDirective;
+  @ViewChild(DropDownAreaDirective)
+  dropDownMenu: DropDownAreaDirective;
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 

@@ -1,0 +1,49 @@
+@import "config";
+
+.popup-area-trigger {
+  position: relative;
+
+  &.clickable-area {
+    cursor: pointer;
+  }
+}
+
+[yourPopupArea] {
+  position: absolute;
+  overflow: scroll;
+  z-index: 100;
+  pointer-events: none;
+  cursor: default;
+
+  &.close {
+    transition: transform 150ms ease-in-out, opacity 150ms ease-in-out;
+  }
+
+  opacity: 0;
+
+  $gap_value: 10px;
+  $scale_value: 0.95;
+
+  &.top {
+    transform: translateY(-$gap_value) scale($scale_value);
+  }
+
+  &.right {
+    transform: translateX($gap_value) scale($scale_value);
+  }
+
+  &.bottom {
+    transform: translateY($gap_value) scale($scale_value);
+  }
+
+  &.left {
+    transform: translateX(-$gap_value) scale($scale_value);
+  }
+
+  &.open {
+    transition: transform 150ms ease-in-out, opacity 150ms ease-in-out;
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+    pointer-events: auto;
+  }
+}

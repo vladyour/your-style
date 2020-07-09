@@ -1,0 +1,11 @@
+<your-card yourFlexBox="horizontal" vAlignment="center">
+  <div class="confirmation-info" #confirmationInfo>
+    <ng-content select="[confirmationInfo]"></ng-content>
+  </div>
+  <span *ngIf="!hasConfirmationInfoElement" class="confirmation-info">
+    {{confirmationText}}
+  </span>
+
+  <button type="button" yourButton color="error" (click)="submit($event)">Yes</button>
+  <button type="button" yourButton color="success" (click)="decline($event)">No</button>
+</your-card>

@@ -15,7 +15,7 @@
     <i class="fas fa-caret-down"></i>
   </div>
 
-  <div yourDropDownMenu>
+  <div yourDropDownArea>
     <div class="your_drop_drown_body">
       <input class="your_select_search_input" [(ngModel)]="searchValue" placeholder="Type to filter">
       <span *ngIf="!(options | filterSelect: searchValue: filterFunction).length" class="your_select_options_warn">

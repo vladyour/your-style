@@ -6,15 +6,15 @@ import {
   OnInit,
   Renderer2,
 } from '@angular/core';
-import {DropDownMenuDirective} from "./drop-down-menu.directive";
+import {DropDownAreaDirective} from "./drop-down-area.directive";
 
 @Directive({
   selector: '[yourDropDownTrigger]'
 })
 export class DropDownTriggerDirective implements OnInit {
 
-  @ContentChild(DropDownMenuDirective)
-  dropDownMenu: DropDownMenuDirective;
+  @ContentChild(DropDownAreaDirective)
+  dropDownMenu: DropDownAreaDirective;
 
   @Input()
   yourDropDownTrigger: 'click' | 'hover' | null = 'click';

@@ -4,22 +4,27 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SelectDemonstrationComponent } from './select-demonstration/select-demonstration.component';
-import {FormModule, LayoutModule} from "your-style";
 import {FormsModule} from "@angular/forms";
 import { BadgeDemonstrationComponent } from './badge-demonstration/badge-demonstration.component';
+import {FormModule} from "../../projects/your-style/src/lib/form/form.module";
+import {LayoutModule} from "../../projects/your-style/src/lib/layout/layout.module";
+import { ButtonDemonstrationComponent } from './button-demonstration/button-demonstration.component';
+import {ButtonModule} from "../../projects/your-style/src/lib/button/button.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     SelectDemonstrationComponent,
     BadgeDemonstrationComponent,
+    ButtonDemonstrationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormModule,
     LayoutModule,
-    FormsModule
+    FormsModule,
+    ButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
