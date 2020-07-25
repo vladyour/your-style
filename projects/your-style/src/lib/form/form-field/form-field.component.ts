@@ -12,12 +12,6 @@ export class FormFieldComponent extends StyleBase implements OnInit {
   @Input()
   label: any;
 
-  @Input()
-  yourStyle: string;
-
-  @Input()
-  yourSize: string;
-
   constructor(el: ElementRef, renderer: Renderer2) {
     super(el, renderer);
   }

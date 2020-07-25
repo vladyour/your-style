@@ -25,7 +25,7 @@ import { ButtonModule } from "../button/button.module";
     TabGroupComponent,
     PopupAreaTriggerDirective,
     PopupAreaDirective,
-    ConfirmationAreaComponent
+    ConfirmationAreaComponent,
   ],
   exports: [
     CardComponent,

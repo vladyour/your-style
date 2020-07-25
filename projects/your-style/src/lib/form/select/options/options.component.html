@@ -1,0 +1,12 @@
+<div class="your_options">
+  <input class="your_options_search" [(ngModel)]="searchValue" placeholder="Type to filter" tabindex="-1">
+  <span *ngIf="!(options | filterSelect: searchValue: filterFunction).length" class="your_options_warn">
+    No options found
+  </span>
+  <div class="your_option"
+       [ngClass]="{selected: optionIsSelected(option), disabled: optionIsDisabled(option)}"
+       *ngFor="let option of options | filterSelect: searchValue: filterFunction" (click)="onOptionSelect($event, option)"
+  >
+    {{getLabelValue(option)}}
+  </div>
+</div>

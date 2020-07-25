@@ -6,8 +6,8 @@ import {PopupAreaDirective} from "./popup-area.directive";
 })
 export class PopupAreaTriggerDirective implements OnInit {
 
-  @Input()
-  yourPopupAreaTrigger: 'click' | 'hover' = 'click';
+  @Input('yourPopupAreaTrigger')
+  triggerType: 'click' | 'hover' = 'click';
 
   @Input()
   popupDelay: number = 5;
@@ -18,69 +18,59 @@ export class PopupAreaTriggerDirective implements OnInit {
   private openTimeout;
   private closeTimeout;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) { }
+  el;
+
+  constructor(private element: ElementRef, private renderer: Renderer2) {
+    this.el = element.nativeElement;
+  }
 
   ngOnInit() {
-    this.renderer.addClass(this.el.nativeElement, 'popup-area-trigger');
-    if (this.yourPopupAreaTrigger == 'click') {
-      this.renderer.addClass(this.el.nativeElement, 'clickable-area');
+    this.el = this.element.nativeElement
+    this.renderer.addClass(this.el, 'popup-area-trigger');
+    if (this.triggerType == 'click') {
+      this.renderer.addClass(this.el, 'clickable-area');
     }
   }
 
   @HostListener('click')
   onClick() {
-    if (this.yourPopupAreaTrigger == 'click') {
+    if (this.triggerType == 'click') {
       this.openPopupArea();
     }
   }
 
   @HostListener('document:click', ['$event'])
   onClose($event) {
-    if (this.yourPopupAreaTrigger == 'click' && !this.el.nativeElement.contains($event.target)) {
+    if (this.triggerType == 'click' && !this.el.contains($event.target)) {
       this.closePopupArea();
     }
   }
 
+  @HostListener('document:keydown.escape')
+  onPopupTriggerEscape() {
+    this.closePopupArea();
+  }
+
   @HostListener('mouseenter')
   onMouseEnter() {
-    if (this.yourPopupAreaTrigger == 'hover') {
-      if (!!this.closeTimeout) {
-        clearTimeout(this.closeTimeout);
-      }
-
-      this.openTimeout = setTimeout(() => {
-        this.openPopupArea();
-      }, this.popupDelay);
+    if (this.triggerType == 'hover') {
+      if (!!this.closeTimeout) clearTimeout(this.closeTimeout);
+      this.openTimeout = setTimeout(this.openPopupArea, this.popupDelay);
     }
   }
 
   @HostListener('mouseleave')
   onMouseLeave() {
-    if (this.yourPopupAreaTrigger == 'hover') {
-      if (!!this.openTimeout) {
-        clearTimeout(this.openTimeout);
-      }
-
-      this.closeTimeout = setTimeout(() => {
-        this.closePopupArea();
-      }, 150);
+    if (this.triggerType == 'hover') {
+      if (!!this.openTimeout) clearTimeout(this.openTimeout);
+      this.closeTimeout = setTimeout(this.closePopupArea, 150);
     }
   }
 
-  private openPopupArea() {
-    this.validate();
-    this.popupArea.open();
+  private openPopupArea = () => {
+    !!this.popupArea && this.popupArea.open();
   }
-
-  private closePopupArea() {
-    this.validate();
-    this.popupArea.close();
+  private closePopupArea = () => {
+    !!this.popupArea && this.popupArea.close();
   }
-
-  private validate() {
-    if (!this.popupArea) {
-      throw 'There is no any element with attribute \'[popupArea]\'.'
-    }
-  }
-
 }

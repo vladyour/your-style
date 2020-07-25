@@ -1,43 +1,20 @@
-import {AfterContentInit, Directive, ElementRef, HostListener, OnInit, Renderer2} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Directive, ElementRef, Renderer2} from '@angular/core';
+import {AbstractInput} from "./abstract-input";
 
 @Directive({
   selector: '[yourInput]'
 })
-export class InputDirective implements OnInit, AfterContentInit {
+export class InputDirective extends AbstractInput implements AfterViewInit {
 
-  parent;
-  hasValue: boolean;
-
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
-
-  ngOnInit(): void {
-    this.parent = this.el.nativeElement.parentElement;
+  constructor(private elementRef: ElementRef, protected renderer: Renderer2) {
+    super(elementRef.nativeElement, renderer);
   }
 
-  ngAfterContentInit(): void {
+  hasValue(): boolean {
+    return this.el.value;
+  }
+
+  ngAfterViewInit() {
     this.checkValueAndFixClass();
   }
-
-  @HostListener('focus')
-  onFocus() {
-    this.renderer.addClass(this.parent, 'focused');
-  }
-
-  @HostListener('blur')
-  onBlur() {
-    this.renderer.removeClass(this.parent, 'focused');
-    this.checkValueAndFixClass();
-  }
-
-  @HostListener('input')
-  @HostListener('ngModelChange')
-  checkValueAndFixClass() {
-    this.hasValue = !!this.el.nativeElement.value;
-    if (this.hasValue) {
-      this.renderer.addClass(this.parent, 'filled');
-    } else {
-      this.renderer.removeClass(this.parent, 'filled');
-    }
-  }
-
 }

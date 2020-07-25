@@ -17,11 +17,14 @@ export class SelectDemonstrationComponent implements OnInit {
 
   selectedMountain: Mountain;
 
+  multipleMountains: Mountain[];
+
   constructor() { }
 
   ngOnInit(): void {
     this.initMountains();
     this.initPlainOptions();
+    this.initMultipleMountains();
   }
 
   private initPlainOptions() {
@@ -38,5 +41,14 @@ export class SelectDemonstrationComponent implements OnInit {
     ];
 
     this.selectedPlainMountain = this.mountains[0].name;
+  }
+
+  private initMultipleMountains() {
+    this.multipleMountains = [
+      new Mountain(1, 'Mount Everest', 8848, 'Himalayas', 'Nepal/China'),
+      new Mountain(4, 'Aconcagua', 6962, 'Andes', 'Argentina'),
+      new Mountain(5, 'Denali', 6144, 'Alaska', 'United States'),
+      new Mountain(6, 'Medeo', 3127, 'Medeo', 'Kazakhstan'),
+    ];
   }
 }

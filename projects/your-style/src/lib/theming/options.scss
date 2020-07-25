@@ -1,0 +1,43 @@
+@import 'config';
+
+
+@mixin options_style($style) {
+  .your_options {
+    $border_radius: map_get($style, border_radius);
+
+    border-radius: $border_radius;
+    box-shadow: map_get($style, box_shadow);
+
+    .your_options_search {
+      border-radius: $border_radius;
+    }
+
+    .your_option {
+      border-radius: $border_radius;
+    }
+  }
+}
+
+@mixin options_theme($theme) {
+
+  $scheme: get_color_scheme($theme, back);
+  $normal: get_color($scheme);
+
+  .your_options {
+    background: lighten(get_color($scheme), 4);
+
+    .your_options_search {
+      background: transparentize(darken($normal, 10), 0.6);
+    }
+
+    .your_option {
+      &:not(.disabled):not(.selected) {
+        background: $normal;
+      }
+
+      &:hover:not(.disabled):not(.selected) {
+        background: get_color($scheme, h);
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import "config";
+
+@mixin multiple_select_style($style) {
+  .your_select_multiple_value {
+    border-radius: map_get($style, border_radius);
+  }
+}
+
+@mixin multiple_select_theme($theme) {
+  $scheme: get_color_scheme($theme, back);
+  $normal: get_color($scheme);
+
+  .your_select_multiple_value {
+    $border_color: lighten($normal, 4);
+    background: $normal;
+    border: 1px solid $border_color;
+
+    .form_field_icon_clear {
+      border-left: 1px solid $border_color;
+    }
+  }
+}

@@ -1,5 +1,4 @@
 @import "config";
-@import "select";
 
 @mixin checkbox_style($style) {
   $size_config: get_config($style, form_config);

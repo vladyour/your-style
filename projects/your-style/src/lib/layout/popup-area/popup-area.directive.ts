@@ -11,7 +11,7 @@ export class PopupAreaDirective implements OnInit {
   private right = 'right';
 
   private _open = false;
-  set openPopup(open) {
+  private set openPopup(open) {
     if (open) {
       if (!this._open) {
         this._open = true;
@@ -54,13 +54,10 @@ export class PopupAreaDirective implements OnInit {
   @Input()
   width: string = 'max-content';
 
-  @Input()
-  maxHeight: string = '300px';
+  private el;
+  private parentEl;
 
-  el;
-  parentEl;
-
-  autoPosition;
+  private autoPosition;
 
   constructor(protected element: ElementRef, protected renderer: Renderer2) {}
 
@@ -68,7 +65,6 @@ export class PopupAreaDirective implements OnInit {
     this.el = this.element.nativeElement;
     this.parentEl = this.el.parentElement;
     this.renderer.setStyle(this.el, 'width', this.width);
-    this.renderer.setStyle(this.el, 'max-height', this.maxHeight);
   }
 
   open() {

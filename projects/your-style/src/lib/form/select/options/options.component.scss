@@ -1,0 +1,40 @@
+.your_options {
+  max-height: 210px;
+  overflow: scroll;
+
+  padding: 3px;
+  margin-top: 3px;
+
+  .your_options_search {
+    padding: 6px;
+    border: 0;
+    outline: none;
+    width: 100%;
+    color: inherit;
+  }
+
+  .your_option {
+    margin: 2px 0;
+    padding: 10px;
+    cursor: pointer;
+
+    &.selected {
+      cursor: default;
+    }
+
+    &.disabled {
+      background: transparent;
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .your_options_warn {
+    padding: 0 5px;
+    text-align: center;
+    font-weight: 100;
+    font-size: 12px;
+    font-style: italic;
+    user-select: none;
+  }
+}

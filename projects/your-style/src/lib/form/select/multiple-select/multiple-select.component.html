@@ -1,0 +1,29 @@
+<div class="form_field_value">
+  <div *ngIf="!!options">
+    <div *ngFor="let selected of value; let index = index" class="your_select_multiple_value"
+         yourFlexBox="horizontal" flexInline vAlignment="center" hAlignment="start"
+    >
+      <span class="your_select_multiple_value_label">{{getLabelValue(getOptionByBindValue(selected))}}</span>
+      <span class="form_field_icon_clear" (click)="deleteOption($event, index)"><i class="fas fa-times"></i></span>
+    </div>
+  </div>
+</div>
+
+<your-options
+  [options]="options"
+  [filterFunction]="filterFunction"
+  (onSelect)="selectOption($event)"
+  [selectedOptions]="getSelectedOptions()"
+  [disabledOptions]="disabledOptions"
+  [closeOnSelect]="closeOnSelect"
+  [getLabelValue]="getLabelValue"
+  yourPopupArea
+  position="bottom center"
+  width="100%"
+>
+</your-options>
+
+<div class="form_field_icons">
+  <span class="form_field_icon form_field_icon_clear" *ngIf="!!value" (click)="clearValue($event)"><i class="fas fa-times"></i></span>
+  <i class="form_field_icon form_field_icon_caret fas fa-caret-down"></i>
+</div>
