@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {SelectDemonstrationComponent} from "./select-demonstration/select-demonstration.component";
 import {BadgeDemonstrationComponent} from "./badge-demonstration/badge-demonstration.component";
 import {ButtonDemonstrationComponent} from "./button-demonstration/button-demonstration.component";
+import {CalendarDemonstrationComponent} from "./calendar-demonstration/calendar-demonstration.component";
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'button',
     component: ButtonDemonstrationComponent
+  },
+  {
+    path: 'calendar',
+    component: CalendarDemonstrationComponent
   }
 ];
 

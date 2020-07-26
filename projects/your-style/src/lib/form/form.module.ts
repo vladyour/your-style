@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputDirective } from './input/input.directive';
 import { LabelComponent } from './label/label.component';
-import { SelectComponent } from './select/select.component';
+import { SelectComponent } from './select/single-select/select.component';
 import {FormsModule} from "@angular/forms";
 import { FilterSelectPipe } from './select/filter-select.pipe';
 import { DateTimePickerComponent } from './date-time-picker/date-time-picker.component';

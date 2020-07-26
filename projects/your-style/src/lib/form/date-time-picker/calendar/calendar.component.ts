@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import * as moment_ from "moment";
 const moment = moment_;
 
@@ -7,10 +7,10 @@ const moment = moment_;
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss']
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent implements OnInit, OnChanges {
 
-  @Input()
-  onDateSelected;
+  @Output()
+  onDateSelected = new EventEmitter();
 
   @Input()
   weekStartsWith: 0 | 1 = 1;
@@ -25,7 +25,7 @@ export class CalendarComponent implements OnInit {
   selectedMonthView;
 
   @Input()
-  selectedDate = moment();
+  selectedDate;
   selectedMonth;
   selectedYear;
 
@@ -40,8 +40,13 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit(): void {
     this.initDaysOfWeek();
-    this.initInitialData();
-    this.updateMonthView();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (!!changes.selectedDate) {
+      this.initInitialData();
+      this.updateMonthView();
+    }
   }
 
   initDaysOfWeek() {
@@ -53,10 +58,11 @@ export class CalendarComponent implements OnInit {
 
   initInitialData() {
     if (!this.selectedDate) {
-      this.selectDate(moment().startOf('day'));
+      this.selectedDate = moment().startOf('day');
+    } else {
+      this.selectedDate = this.selectedDate.startOf('day');
     }
-
-    this.selectedMonth = moment(this.selectedDate);
+    this.selectedMonth = this.selectedDate;
   }
 
   updateSelectedMonth(delta: number) {
@@ -82,9 +88,9 @@ export class CalendarComponent implements OnInit {
     }
   }
 
-  selectDate(date) {
-    this.selectedDate = date;
-    this.onDateSelected(this.selectedDate);
+  selectDate($event, date) {
+    this.onDateSelected.emit(date);
+    $event.stopPropagation();
   }
 
   isDifferentMonth = (date: any) => date.month() != this.selectedMonth.month();
@@ -92,6 +98,4 @@ export class CalendarComponent implements OnInit {
   getDate = (date: any) => date.date();
   getSelectedMonthName = () => moment.months(this.selectedMonth.month());
   getSelectedYear = () => this.selectedYear.year();
-
-  getCalendarStyle = () => this.style ? `${this.style}-card` : '';
 }

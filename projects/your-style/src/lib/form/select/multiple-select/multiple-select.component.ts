@@ -1,4 +1,4 @@
-import {Component, ElementRef, forwardRef, HostListener, Input, OnInit, Renderer2} from '@angular/core';
+import {Component, ElementRef, forwardRef, Input, OnInit, Renderer2} from '@angular/core';
 import {AbstractSelect} from "../abstract-select";
 import {NG_VALUE_ACCESSOR} from "@angular/forms";
 

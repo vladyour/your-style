@@ -1,9 +1,14 @@
-<div class="form_field_content" yourDropDownTrigger>
-  <div  class="form_field_value_content">{{getValueLabel()}}</div>
-  <div class="your_form_field_icon">
-    <span class="your-form-field_clear" (click)="clearValue($event)"><i class="fas fa-times"></i></span>
-    <i class="far fa-calendar-alt"></i>
-  </div>
-  <your-calendar [onDateSelected]="onDateSelect" [style]="yourStyle" [selectedDate]="value" yourDropDownArea></your-calendar>
+<div  class="form_field_value">
+  <span *ngIf="!!value">{{getValueLabel()}}</span>
 </div>
-
+<div class="form_field_icons">
+  <span class="form_field_icon form_field_icon_clear" (click)="clearValue($event)" *ngIf="!!value"><i class="fas fa-times"></i></span>
+  <i class="form_field_icon far fa-calendar-alt"></i>
+</div>
+<your-calendar
+  (onDateSelected)="onDateSelect($event)"
+  [style]="yourStyle"
+  [selectedDate]="value"
+  yourPopupArea
+  position="bottom center"
+></your-calendar>

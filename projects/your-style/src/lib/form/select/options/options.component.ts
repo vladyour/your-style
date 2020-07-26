@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {PopupAreaDirective} from "../../../layout/popup-area/popup-area.directive";
 
 @Component({
@@ -6,7 +6,7 @@ import {PopupAreaDirective} from "../../../layout/popup-area/popup-area.directiv
   templateUrl: './options.component.html',
   styleUrls: ['./options.component.scss']
 })
-export class OptionsComponent implements OnInit {
+export class OptionsComponent {
 
   @Input()
   options: any[] = [];
@@ -36,9 +36,6 @@ export class OptionsComponent implements OnInit {
   closeOnSelect = true;
 
   constructor(private popupAreaDirective: PopupAreaDirective) { }
-
-  ngOnInit(): void {
-  }
 
   onOptionSelect($event, option) {
     if (this.optionIsSelected(option) || this.optionIsDisabled(option)) return;

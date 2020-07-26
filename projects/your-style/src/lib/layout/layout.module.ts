@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { CardComponent } from './card/card.component';
 import { FlexBoxDirective } from './flex-box/flex-box.directive';
 import { FlexBoxBasisDirective } from './flex-box/flex-box-basis.directive';
-import { DropDownAreaDirective } from './drop-down-menu/drop-down-area.directive';
-import { DropDownTriggerDirective } from './drop-down-menu/drop-down-trigger.directive';
 import { TabComponent } from './tab-group/tab/tab.component';
 import { TabGroupComponent } from './tab-group/tab-group.component';
 import { PopupAreaDirective } from './popup-area/popup-area.directive';
@@ -19,8 +17,6 @@ import { ButtonModule } from "../button/button.module";
     CardComponent,
     FlexBoxDirective,
     FlexBoxBasisDirective,
-    DropDownAreaDirective,
-    DropDownTriggerDirective,
     TabComponent,
     TabGroupComponent,
     PopupAreaTriggerDirective,
@@ -31,8 +27,6 @@ import { ButtonModule } from "../button/button.module";
     CardComponent,
     FlexBoxDirective,
     FlexBoxBasisDirective,
-    DropDownAreaDirective,
-    DropDownTriggerDirective,
     TabGroupComponent,
     TabComponent,
     PopupAreaTriggerDirective,

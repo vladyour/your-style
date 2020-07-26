@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "lib:build": "ng build your-style --prod",
     "lib:watch": "ng build your-style --watch",
-    "lib:publish": "npm run lib:build && cd dist/your-style && npm pack npm publish --access public"
+    "lib:publish": "npm run lib:build && cd dist/your-style && npm pack && npm publish --access public"
   },
   "private": true,
   "dependencies": {

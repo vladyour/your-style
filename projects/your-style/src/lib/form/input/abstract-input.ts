@@ -1,6 +1,6 @@
-import {HostListener, OnChanges, OnInit, Renderer2, SimpleChanges} from "@angular/core";
+import {HostListener, OnInit, Renderer2} from "@angular/core";
 
-export abstract class AbstractInput implements OnInit, OnChanges {
+export abstract class AbstractInput implements OnInit {
 
   parent;
 
@@ -11,10 +11,6 @@ export abstract class AbstractInput implements OnInit, OnChanges {
     this.renderer.addClass(this.el, 'form_field_content');
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
-  }
-
   @HostListener('focus')
   onFocus() {
     this.renderer.addClass(this.parent, 'focused');
@@ -22,14 +18,13 @@ export abstract class AbstractInput implements OnInit, OnChanges {
 
   @HostListener('blur')
   onBlur() {
-    // this.checkValueAndFixClass();
+    this.checkValueAndFixClass();
     this.renderer.removeClass(this.parent, 'focused');
   }
 
-  // @HostListener('input')
+  @HostListener('input')
   @HostListener('ngModelChange')
   checkValueAndFixClass() {
-    console.log('ON MODEL CHANGE');
     if (this.hasValue()) {
       this.renderer.addClass(this.parent, 'filled');
     } else {

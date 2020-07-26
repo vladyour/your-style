@@ -1,6 +1,6 @@
 import {Component, ElementRef, forwardRef, Input, Renderer2} from '@angular/core';
 import {NG_VALUE_ACCESSOR} from "@angular/forms";
-import {AbstractSelect} from "./abstract-select";
+import {AbstractSelect} from "../abstract-select";
 
 @Component({
   selector: 'your-select',

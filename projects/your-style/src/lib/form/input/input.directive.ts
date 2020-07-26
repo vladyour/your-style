@@ -1,4 +1,4 @@
-import {AfterContentInit, AfterViewInit, Directive, ElementRef, Renderer2} from '@angular/core';
+import {AfterViewInit, Directive, ElementRef, Renderer2} from '@angular/core';
 import {AbstractInput} from "./abstract-input";
 
 @Directive({

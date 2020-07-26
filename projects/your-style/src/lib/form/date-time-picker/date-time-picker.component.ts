@@ -5,10 +5,10 @@ import {
   Input,
   Renderer2,
 } from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {NG_VALUE_ACCESSOR} from "@angular/forms";
 import * as moment_ from "moment";
 const moment = moment_;
-import {FormFieldControlWithDropDown} from "../form-field/form-field-control-with-drop-down";
+import {CalendarFormField} from "./calendar-form-field";
 
 @Component({
   selector: 'your-date-time-picker',
@@ -19,7 +19,7 @@ import {FormFieldControlWithDropDown} from "../form-field/form-field-control-wit
     multi: true
   }]
 })
-export class DateTimePickerComponent extends FormFieldControlWithDropDown implements ControlValueAccessor {
+export class DateTimePickerComponent extends CalendarFormField {
 
   @Input()
   placeholder: string;
@@ -60,5 +60,9 @@ export class DateTimePickerComponent extends FormFieldControlWithDropDown implem
   clearValue($event: MouseEvent) {
     $event.stopPropagation();
     this.onDateSelect(null);
+  }
+
+  hasValue(): boolean {
+    return !!this.value
   }
 }

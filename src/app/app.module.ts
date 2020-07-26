@@ -10,6 +10,7 @@ import {FormModule} from "../../projects/your-style/src/lib/form/form.module";
 import {LayoutModule} from "../../projects/your-style/src/lib/layout/layout.module";
 import { ButtonDemonstrationComponent } from './button-demonstration/button-demonstration.component';
 import {ButtonModule} from "../../projects/your-style/src/lib/button/button.module";
+import { CalendarDemonstrationComponent } from './calendar-demonstration/calendar-demonstration.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {ButtonModule} from "../../projects/your-style/src/lib/button/button.modu
     SelectDemonstrationComponent,
     BadgeDemonstrationComponent,
     ButtonDemonstrationComponent,
+    CalendarDemonstrationComponent,
   ],
   imports: [
     BrowserModule,

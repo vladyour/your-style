@@ -35,10 +35,10 @@ export abstract class DropdownFormField extends AbstractInput {
     this.closePopupArea();
   }
 
-  private openPopupArea? = () => {
+  protected openPopupArea = () => {
     !!this.popupArea && this.popupArea.open();
   }
-  private closePopupArea? = () => {
+  protected closePopupArea = () => {
     !!this.popupArea && this.popupArea.close();
   }
 }

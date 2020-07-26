@@ -1,4 +1,4 @@
-<div class="your_options">
+<div class="your_drop_down_content your_options">
   <input class="your_options_search" [(ngModel)]="searchValue" placeholder="Type to filter" tabindex="-1">
   <span *ngIf="!(options | filterSelect: searchValue: filterFunction).length" class="your_options_warn">
     No options found
