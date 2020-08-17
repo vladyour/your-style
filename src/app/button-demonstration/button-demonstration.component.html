@@ -1,17 +1,19 @@
-<button yourButton [yourPopupAreaTrigger]>
-  <your-confirmation-area yourPopupArea (onSubmit)="onSubmit()" (onDecline)="onDecline()"></your-confirmation-area>
-  Simple button
-</button>
+<your-card yourFlexBox="vertical">
+  <button yourButton [yourPopupAreaTrigger] class="single-in-row">
+    <your-confirmation-area yourPopupArea (onSubmit)="onSubmit()" (onDecline)="onDecline()"></your-confirmation-area>
+    Simple button
+  </button>
 
 
-<button yourButton [yourPopupAreaTrigger]>
-  <your-options
-    [options]="options"
-    (onSelect)="onSelect($event)"
-    yourPopupArea
-    position="bottom center"
-    width="100%"
-  ></your-options>
-  <your-confirmation-area yourPopupArea (onSubmit)="onSubmit()" (onDecline)="onDecline()"></your-confirmation-area>
-  Button with dropdown select
-</button>
+  <button yourButton [yourPopupAreaTrigger]>
+    <your-options
+      [options]="options"
+      (onSelect)="onSelect($event)"
+      yourPopupArea
+      position="bottom center"
+      width="100%"
+    ></your-options>
+    <your-confirmation-area yourPopupArea (onSubmit)="onSubmit()" (onDecline)="onDecline()"></your-confirmation-area>
+    Button with dropdown select
+  </button>
+</your-card>
