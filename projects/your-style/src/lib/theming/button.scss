@@ -45,6 +45,10 @@
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap;
+
+    &.inline {
+      display: inline-flex;
+    }
   }
 
   &.inline {
