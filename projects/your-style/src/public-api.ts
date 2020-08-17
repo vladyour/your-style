@@ -10,6 +10,7 @@ export * from './lib/form/input/input.directive';
 export * from './lib/form/date-time-picker/date-time-picker.component';
 export * from './lib/form/select/single-select/select.component';
 export * from './lib/form/select/multiple-select/multiple-select.component';
+export * from './lib/form/select/options/options.component';
 export * from './lib/form/select/filter-select.pipe';
 
 export * from './lib/button/button.module';
