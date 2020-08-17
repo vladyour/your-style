@@ -9,7 +9,7 @@ import {StyleBase} from "../../core/style-base";
 export class CardComponent extends StyleBase implements OnInit {
 
   @Input()
-  display: 'block' | 'flex' = 'flex';
+  display: 'block' | 'flex' = 'block';
 
   @Input()
   inline: boolean = true;
