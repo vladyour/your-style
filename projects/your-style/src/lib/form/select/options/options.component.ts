@@ -19,7 +19,7 @@ export class OptionsComponent {
 
   @Input()
   filterFunction: (searchInput: string, option: any) => boolean = (searchInput, option) => {
-    let labelValue = this.getLabelValue(option).toLowerCase();
+    let labelValue = this.labelValue(option).toLowerCase();
     let splitSearch = searchInput.split(' ').filter(search => !!search);
     return !splitSearch.length || splitSearch.some(search => labelValue.includes(search.toLowerCase()));
   };
@@ -27,13 +27,23 @@ export class OptionsComponent {
   searchValue: string;
 
   @Input()
-  getLabelValue: (option) => string;
+  labelValue: (option) => string;
+
+  getLabelValue = (option) => {
+    let label;
+    if (typeof this.labelValue == 'string' && !!this.labelValue) label = option[this.labelValue];
+    if (typeof this.labelValue == 'function') label = this.labelValue(option);
+    return label || option;
+  }
 
   @Output()
   onSelect: EventEmitter<any> = new EventEmitter();
 
   @Input()
   closeOnSelect = true;
+
+  @Input()
+  searchEnabled: boolean = false;
 
   constructor(private popupAreaDirective: PopupAreaDirective) { }
 

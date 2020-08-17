@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ButtonDemonstrationComponent implements OnInit {
 
+  options: any[];
+
   constructor() { }
 
   ngOnInit(): void {
+    this.options = [
+      'First',
+      'Second',
+      'Third'
+    ];
   }
 
   onSubmit() {
@@ -18,5 +25,9 @@ export class ButtonDemonstrationComponent implements OnInit {
 
   onDecline() {
     console.log("DECLINE");
+  }
+
+  onSelect(option: any) {
+    console.log(option);
   }
 }

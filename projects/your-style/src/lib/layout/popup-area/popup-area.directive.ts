@@ -52,7 +52,7 @@ export class PopupAreaDirective implements OnInit {
   }
 
   @Input()
-  width: string = 'max-content';
+  width: 'max-content' | '100%' | string = 'max-content';
 
   private el;
   private parentEl;
