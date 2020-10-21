@@ -11,6 +11,8 @@ import {LayoutModule} from "../../projects/your-style/src/lib/layout/layout.modu
 import { ButtonDemonstrationComponent } from './button-demonstration/button-demonstration.component';
 import {ButtonModule} from "../../projects/your-style/src/lib/button/button.module";
 import { CalendarDemonstrationComponent } from './calendar-demonstration/calendar-demonstration.component';
+import { NavbarDemonstrationComponent } from './navbar-demonstration/navbar-demonstration.component';
+import { LoginDemonstrationComponent } from './login-demonstration/login-demonstration.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { CalendarDemonstrationComponent } from './calendar-demonstration/calenda
     BadgeDemonstrationComponent,
     ButtonDemonstrationComponent,
     CalendarDemonstrationComponent,
+    NavbarDemonstrationComponent,
+    LoginDemonstrationComponent,
   ],
   imports: [
     BrowserModule,

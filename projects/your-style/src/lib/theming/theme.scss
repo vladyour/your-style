@@ -11,6 +11,7 @@
 @import 'link';
 @import "main";
 @import "multiple-select";
+@import "navbar";
 @import "options";
 @import 'padding-and-margin';
 @import "popup-area";
@@ -28,6 +29,7 @@
   @include form_field_style($style);
   @include info_box_style($style);
   @include multiple_select_style($style);
+  @include navbar_style($style);
   @include padding_and_margin_style($style);
   @include options_style($style);
 }
@@ -43,6 +45,7 @@
   @include info_box_theme($theme);
   @include link_theme($theme);
   @include multiple_select_theme($theme);
+  @include navbar_theme($theme);
   @include body_theme($theme);
   @include options_theme($theme);
   @include tab_theme($theme);

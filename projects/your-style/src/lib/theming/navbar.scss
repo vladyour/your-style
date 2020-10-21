@@ -1,0 +1,28 @@
+@import "config";
+
+@mixin navbar_style($style) {
+  $default_config_name: map_get($style, default_navbar_config);
+
+  your-navbar {
+    $size_config: get_config($style, navbar_config);
+
+    .your-navbar {
+      box-shadow: map_get($style, box_shadow);
+      padding: get_config_prop($size_config, $default_config_name, padding);
+    }
+  }
+}
+
+@mixin navbar_theme($theme) {
+
+  your-navbar {
+
+    .your-navbar {
+      $scheme: get_color_scheme($theme, back);
+
+      $background: get_color($scheme);
+      $background2: lighten($background, 12.55);
+      background: get_gradient_background($background, $background2, 45deg, no-repeat, fixed);
+    }
+  }
+}

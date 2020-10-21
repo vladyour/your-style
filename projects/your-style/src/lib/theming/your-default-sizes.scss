@@ -118,8 +118,25 @@ $form_config: (
     label_padding: 16px
   ),
 );
+$navbar_config: (
+  s: (
+    padding: 5px,
+    margin: 5px,
+    border-radius: 5px
+  ),
+  m: (
+    padding: 10px,
+    margin: 10px,
+    border_radius: 10px
+  ),
+  l: (
+    padding: 15px,
+    margin: 10px,
+    border_radius: 15px
+  ),
+);
 
-$okko_report_style: (
+$your_style: (
   default_card_config: m,
   card_config: $card_config,
 
@@ -144,8 +161,11 @@ $okko_report_style: (
   form_config: $form_config,
   default_form_config: m,
 
+  navbar_config: $navbar_config,
+  default_navbar_config: l,
+
   border_radius: 4px,
-  box_shadow: -5px 5px 10px 0 transparentize(darken(#232323, 10), 0.7)
+  box_shadow: -5px 5px 10px 0 transparentize(darken(#232323, 10), 0.5)
 );
 
-@include yourStyle($okko_report_style);
+@include yourStyle($your_style);

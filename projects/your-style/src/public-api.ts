@@ -12,6 +12,7 @@ export * from './lib/form/select/single-select/select.component';
 export * from './lib/form/select/multiple-select/multiple-select.component';
 export * from './lib/form/select/options/options.component';
 export * from './lib/form/select/filter-select.pipe';
+export * from './lib/form/login/login.component';
 
 export * from './lib/button/button.module';
 export * from './lib/button/button.directive';
@@ -28,6 +29,7 @@ export * from './lib/layout/flex-box/flex-box-basis.directive';
 export * from './lib/layout/confirmation-area/confirmation-area.component';
 export * from './lib/layout/popup-area/popup-area.directive';
 export * from './lib/layout/popup-area/popup-area-trigger.directive';
+export * from './lib/layout/navbar/navbar.component';
 
 export * from './lib/core/style-base';
 

@@ -1,0 +1,33 @@
+<h2 class="p-v-md">
+  Sign in
+</h2>
+
+<form [formGroup]="loginForm" class="your-login-form">
+  <your-form-field [ngClass]="{error: loginControl.touched && loginControl.invalid}">
+    <your-label>
+      <i class="fas fa-user" *ngIf="useLoginIcon"></i>
+      {{loginLabel}}
+    </your-label>
+    <input yourInput type="text" formControlName="login"/>
+    <div formFieldInfo *ngIf="loginControl.touched && loginControl.invalid">{{wrongLoginMessage}}</div>
+  </your-form-field>
+
+  <your-form-field [ngClass]="{error: passwordControl.touched && passwordControl.invalid}">
+    <your-label>
+      <i class="fas fa-key" *ngIf="usePasswordIcon"></i>
+      {{passwordLabel}}
+    </your-label>
+    <input yourInput type="password" formControlName="password"/>
+    <div formFieldInfo *ngIf="passwordControl.touched && passwordControl.invalid">{{wrongPasswordMessage}}</div>
+  </your-form-field>
+
+  <button
+    yourButton type="submit"
+    size="m"
+    color="secondary"
+    [disabled]="loginForm.invalid"
+  >
+    <i class="fas fa-sign-in-alt"></i>
+    Sign in
+  </button>
+</form>

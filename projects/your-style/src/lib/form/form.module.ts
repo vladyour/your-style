@@ -3,16 +3,18 @@ import { CommonModule } from '@angular/common';
 import { InputDirective } from './input/input.directive';
 import { LabelComponent } from './label/label.component';
 import { SelectComponent } from './select/single-select/select.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FilterSelectPipe } from './select/filter-select.pipe';
 import { DateTimePickerComponent } from './date-time-picker/date-time-picker.component';
 import { FormFieldComponent } from './form-field/form-field.component';
-import {LayoutModule} from "../layout/layout.module";
-import {CalendarComponent} from "./date-time-picker/calendar/calendar.component";
+import {LayoutModule} from '../layout/layout.module';
+import {CalendarComponent} from './date-time-picker/calendar/calendar.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { OptionsComponent } from './select/options/options.component';
 import { MultipleSelectComponent } from './select/multiple-select/multiple-select.component';
-import {PopupAreaDirective} from "../layout/popup-area/popup-area.directive";
+import {PopupAreaDirective} from '../layout/popup-area/popup-area.directive';
+import { LoginComponent } from './login/login.component';
+import {ButtonModule} from '../button/button.module';
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import {PopupAreaDirective} from "../layout/popup-area/popup-area.directive";
     CheckboxComponent,
     OptionsComponent,
     MultipleSelectComponent,
+    LoginComponent,
   ],
   exports: [
     InputDirective,
@@ -37,11 +40,14 @@ import {PopupAreaDirective} from "../layout/popup-area/popup-area.directive";
     FormFieldComponent,
     CheckboxComponent,
     OptionsComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     LayoutModule,
+    ReactiveFormsModule,
+    ButtonModule,
   ],
   providers: [
     PopupAreaDirective
