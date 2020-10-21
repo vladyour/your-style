@@ -1,5 +1,6 @@
-import {ElementRef, Input, OnChanges, Renderer2, SimpleChange, SimpleChanges} from "@angular/core";
+import { ElementRef, Input, OnChanges, Renderer2, SimpleChange, SimpleChanges, Directive } from "@angular/core";
 
+@Directive()
 export abstract class StyleBase implements OnChanges {
 
   @Input()

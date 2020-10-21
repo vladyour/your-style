@@ -1,7 +1,8 @@
 import {ControlValueAccessor} from "@angular/forms";
-import {ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges} from "@angular/core";
+import { ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges, Directive } from "@angular/core";
 import {DropdownFormField} from "../input/dropdown-form-field";
 
+@Directive()
 export abstract class AbstractSelect<T> extends DropdownFormField implements ControlValueAccessor, OnInit, OnChanges {
 
   protected constructor(protected element: ElementRef, protected renderer: Renderer2) {

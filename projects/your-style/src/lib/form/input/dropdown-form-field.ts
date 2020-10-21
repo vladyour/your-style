@@ -1,7 +1,8 @@
-import {HostListener, Renderer2, ViewChild} from "@angular/core";
+import { HostListener, Renderer2, ViewChild, Directive } from "@angular/core";
 import {PopupAreaDirective} from "../../layout/popup-area/popup-area.directive";
 import {AbstractInput} from "./abstract-input";
 
+@Directive()
 export abstract class DropdownFormField extends AbstractInput {
 
   @ViewChild(PopupAreaDirective)

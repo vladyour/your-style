@@ -1,7 +1,8 @@
-import {ElementRef, Renderer2,} from "@angular/core";
+import { ElementRef, Renderer2, Directive } from "@angular/core";
 import {ControlValueAccessor} from "@angular/forms";
 import {DropdownFormField} from "../input/dropdown-form-field";
 
+@Directive()
 export abstract class CalendarFormField extends DropdownFormField implements ControlValueAccessor {
 
   abstract hideMenuOnSelect;
