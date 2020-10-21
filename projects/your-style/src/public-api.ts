@@ -26,6 +26,8 @@ export * from './lib/layout/tab-group/tab/tab.component';
 export * from './lib/layout/flex-box/flex-box.directive';
 export * from './lib/layout/flex-box/flex-box-basis.directive';
 export * from './lib/layout/confirmation-area/confirmation-area.component';
+export * from './lib/layout/popup-area/popup-area.directive';
+export * from './lib/layout/popup-area/popup-area-trigger.directive';
 
-export * from './lib/core/style-base'
+export * from './lib/core/style-base';
 
