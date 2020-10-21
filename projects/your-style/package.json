@@ -2,9 +2,9 @@
   "name": "@vladyour/your-style",
   "version": "0.0.8",
   "peerDependencies": {
-    "@angular/common": "^9.1.1",
-    "@angular/core": "^9.1.1",
-    "moment": "^2.24.0"
+    "@angular/common": "~10.1.6",
+    "@angular/core": "~10.1.6",
+    "moment": "^2.29.1"
   },
   "dependencies": {
     "tslib": "^2.0.0"
