@@ -1,6 +1,6 @@
 {
   "name": "@vladyour/your-style",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "peerDependencies": {
     "@angular/common": "~10.1.6",
     "@angular/core": "~10.1.6",
@@ -8,5 +8,17 @@
   },
   "dependencies": {
     "tslib": "^2.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladyour/your-style.git"
+  },
+  "keywords": [
+    "angular",
+    "css",
+    "style",
+    "components"
+  ],
+  "author": "Vlad Yurevich <vlad.your8@gmail.com> (www.linkedin.com/in/vladyour)",
+  "license": "MIT"
 }

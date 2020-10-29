@@ -1,24 +1,15 @@
 # YourStyle
+An Angular library with widely customizable components and style.
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+######Easy to use. Easy to customize.
 
-## Code scaffolding
+[Repo](https://github.com/vladyour/your-style)
 
-Run `ng generate component component-name --project your-style` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project your-style`.
-> Note: Don't forget to add `--project your-style` or else it will be added to the default project in your `angular.json` file. 
+##Demo
+######_(...in progress)_
 
-## Build
+##Short description of the components
+######_(...in progress)_
 
-Run `ng build your-style` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build your-style`, go to the dist folder `cd dist/your-style` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test your-style` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+##Short description of the style
+######_(...in progress)_
