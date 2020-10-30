@@ -5,10 +5,10 @@ import {
   Input,
   Renderer2,
 } from '@angular/core';
-import {NG_VALUE_ACCESSOR} from "@angular/forms";
-import * as moment_ from "moment";
+import {NG_VALUE_ACCESSOR} from '@angular/forms';
+import * as moment_ from 'moment';
 const moment = moment_;
-import {CalendarFormField} from "./calendar-form-field";
+import {CalendarFormField} from './calendar-form-field';
 
 @Component({
   selector: 'your-date-time-picker',
@@ -63,6 +63,6 @@ export class DateTimePickerComponent extends CalendarFormField {
   }
 
   hasValue(): boolean {
-    return !!this.value
+    return !!this.value;
   }
 }

@@ -1,5 +1,5 @@
 import {Component, forwardRef, HostListener, OnInit, ViewEncapsulation} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
   selector: 'your-checkbox',
@@ -16,6 +16,8 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
 
   checked: boolean;
 
+  onChange;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -26,10 +28,8 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
     this.checked = !this.checked;
     this.onChange(this.checked);
   }
-
-  onChange;
   registerOnChange(fn: any): void {
-    this.onChange = fn
+    this.onChange = fn;
   }
 
   registerOnTouched(fn: any): void {}

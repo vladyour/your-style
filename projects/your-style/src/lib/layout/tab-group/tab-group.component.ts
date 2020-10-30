@@ -4,7 +4,7 @@ import {
   ContentChildren,
   QueryList,
 } from '@angular/core';
-import {TabComponent} from "./tab/tab.component";
+import {TabComponent} from './tab/tab.component';
 
 @Component({
   selector: 'your-tab-group',
@@ -49,6 +49,6 @@ export class TabGroupComponent implements AfterContentInit {
       } else {
         tab.hideTab();
       }
-    })
+    });
   }
 }

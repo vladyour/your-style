@@ -1,4 +1,4 @@
-import { HostListener, OnInit, Renderer2, Directive } from "@angular/core";
+import { HostListener, OnInit, Renderer2, Directive } from '@angular/core';
 
 @Directive()
 export abstract class AbstractInput implements OnInit {

@@ -1,6 +1,6 @@
 import {Component, ElementRef, forwardRef, Input, Renderer2} from '@angular/core';
-import {NG_VALUE_ACCESSOR} from "@angular/forms";
-import {AbstractSelect} from "../abstract-select";
+import {NG_VALUE_ACCESSOR} from '@angular/forms';
+import {AbstractSelect} from '../abstract-select';
 
 @Component({
   selector: 'your-select',
@@ -22,7 +22,7 @@ export class SelectComponent extends AbstractSelect<any> {
   closeOnSelect = true;
 
   getSelectedOptions(): any[] {
-    return this.options.filter(this.optionIsSelected)
+    return this.options.filter(this.optionIsSelected);
   }
 
   hasValue(): boolean {
@@ -30,11 +30,14 @@ export class SelectComponent extends AbstractSelect<any> {
   }
 
   optionIsSelected = (option): boolean => {
-    if (!this.hasValue()) return false;
-    let bindValueOfOption = this.getBindValue(option);
-    let keyOfOption = this.getKeyOfBindValue(bindValueOfOption);
+    if (!this.hasValue()) {
+      return false;
+    }
 
-    let keyOfValue = this.getKeyOfBindValue(this.value);
+    const bindValueOfOption = this.getBindValue(option);
+    const keyOfOption = this.getKeyOfBindValue(bindValueOfOption);
+
+    const keyOfValue = this.getKeyOfBindValue(this.value);
     return keyOfValue == keyOfOption;
   }
 

@@ -11,8 +11,8 @@ export class TableFilterPipe implements PipeTransform {
   }
 
   filter = (row: any, filter: any) => {
-    let keys = Object.keys(filter);
+    const keys = Object.keys(filter);
     return keys.every(key => row[key].toString().toLowerCase().includes(filter[key].toLowerCase()));
-  };
+  }
 
 }

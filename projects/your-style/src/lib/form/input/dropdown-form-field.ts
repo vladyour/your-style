@@ -1,6 +1,6 @@
-import { HostListener, Renderer2, ViewChild, Directive } from "@angular/core";
-import {PopupAreaDirective} from "../../layout/popup-area/popup-area.directive";
-import {AbstractInput} from "./abstract-input";
+import {HostListener, Renderer2, ViewChild, Directive, OnInit} from '@angular/core';
+import {PopupAreaDirective} from '../../layout/popup-area/popup-area.directive';
+import {AbstractInput} from './abstract-input';
 
 @Directive()
 export abstract class DropdownFormField extends AbstractInput {
@@ -8,12 +8,12 @@ export abstract class DropdownFormField extends AbstractInput {
   @ViewChild(PopupAreaDirective)
   popupArea: PopupAreaDirective;
 
-  constructor(protected el, protected renderer: Renderer2) {
+  protected constructor(protected el, protected renderer: Renderer2) {
     super(el, renderer);
   }
 
   ngOnInit() {
-    this.renderer.setAttribute(this.el,'tabindex', '0');
+    this.renderer.setAttribute(this.el, 'tabindex', '0');
     super.ngOnInit();
   }
 
@@ -37,9 +37,13 @@ export abstract class DropdownFormField extends AbstractInput {
   }
 
   protected openPopupArea = () => {
-    !!this.popupArea && this.popupArea.open();
+    if (!!this.popupArea) {
+      this.popupArea.open();
+    }
   }
   protected closePopupArea = () => {
-    !!this.popupArea && this.popupArea.close();
+    if (!!this.popupArea) {
+      this.popupArea.close();
+    }
   }
 }

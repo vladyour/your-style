@@ -20,11 +20,11 @@ export class ButtonDemonstrationComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("SUBMIT");
+    console.log('SUBMIT');
   }
 
   onDecline() {
-    console.log("DECLINE");
+    console.log('DECLINE');
   }
 
   onSelect(option: any) {

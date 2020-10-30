@@ -1,5 +1,5 @@
-import {Directive, ElementRef, HostListener, Input, Renderer2} from '@angular/core';
-import {StyleBase} from "../core/style-base";
+import {Directive, ElementRef, HostListener, Renderer2} from '@angular/core';
+import {StyleBase} from '../core/style-base';
 
 @Directive({
   selector: '[yourButton]'
@@ -7,7 +7,7 @@ import {StyleBase} from "../core/style-base";
 export class ButtonDirective extends StyleBase {
 
   constructor(el: ElementRef, renderer: Renderer2) {
-    super(el, renderer)
+    super(el, renderer);
   }
 
   getTagPrefix = () => 'your-btn';

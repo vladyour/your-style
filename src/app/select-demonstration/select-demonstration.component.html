@@ -37,8 +37,9 @@
 
     <h3 class="p-b-md">Object array #1</h3>
     <h5 class="p-b-md">Bound value is id, displayed value is name</h5>
-    <your-form-field label="Countries">
+    <your-form-field label="Countries" [ngClass]="{error: !selectedIdNameMountain}">
       <your-select [options]="mountains" [(ngModel)]="selectedIdNameMountain" labelValue="name" bindValue="id"></your-select>
+      <span formFieldInfo *ngIf="!selectedIdNameMountain">At least one mountain should be selected</span>
     </your-form-field>
 
     <h5 class="p-t-md">

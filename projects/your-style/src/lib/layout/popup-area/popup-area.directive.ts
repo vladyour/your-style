@@ -37,13 +37,13 @@ export class PopupAreaDirective implements OnInit {
     'left top' | 'left center' | 'left bottom';
 
   get positions() {
-    let p = {
+    const p = {
       primary: null,
       secondary: null
-    }
+    };
 
     if (!!this.autoPosition) {
-      let split = this.autoPosition.split(' ');
+      const split = this.autoPosition.split(' ');
       p.primary = split[0];
       p.secondary = split[1];
     }
@@ -72,47 +72,47 @@ export class PopupAreaDirective implements OnInit {
   }
 
   calculatePrimaryPosition() {
-    if (this.fitsDefault) this.autoPosition = this.position;
-    else if (this.fitsUp) this.autoPosition = 'top center';
-    else if (this.fitsBottom) this.autoPosition = 'bottom center';
-    else if (this.fitsRight) this.autoPosition = 'right center';
-    else if (this.fitsLeft) this.autoPosition = 'left center';
-    else this.autoPosition = 'top center';
+    if (this.fitsDefault) { this.autoPosition = this.position; }
+    else if (this.fitsUp) { this.autoPosition = 'top center'; }
+    else if (this.fitsBottom) { this.autoPosition = 'bottom center'; }
+    else if (this.fitsRight) { this.autoPosition = 'right center'; }
+    else if (this.fitsLeft) { this.autoPosition = 'left center'; }
+    else { this.autoPosition = 'top center'; }
   }
 
   get fitsDefault() {
-    let defaultPosition = this.position || 'top center';
-    let primary = defaultPosition.split(' ')[0];
-    if (primary == this.bottom) return this.fitsBottom;
-    if (primary == this.right) return this.fitsRight;
-    if (primary == this.left) return this.fitsLeft;
+    const defaultPosition = this.position || 'top center';
+    const primary = defaultPosition.split(' ')[0];
+    if (primary == this.bottom) { return this.fitsBottom; }
+    if (primary == this.right) { return this.fitsRight; }
+    if (primary == this.left) { return this.fitsLeft; }
     return false;
   }
 
   get fitsUp() {
-    let parentRect = this.parentEl.getBoundingClientRect();
+    const parentRect = this.parentEl.getBoundingClientRect();
     return this.el.offsetHeight <= parentRect.y ;
   }
 
   get fitsRight() {
-    let parentRect = this.parentEl.getBoundingClientRect();
-    let fullWidth = window.innerWidth;
+    const parentRect = this.parentEl.getBoundingClientRect();
+    const fullWidth = window.innerWidth;
     return this.el.offsetWidth <= fullWidth - (parentRect.x + parentRect.width);
   }
 
   get fitsBottom() {
-    let parentRect = this.parentEl.getBoundingClientRect();
-    let fullHeight = window.innerHeight;
+    const parentRect = this.parentEl.getBoundingClientRect();
+    const fullHeight = window.innerHeight;
     return this.el.offsetHeight <= fullHeight - (parentRect.y + parentRect.height);
   }
 
   get fitsLeft() {
-    let parentRect = this.parentEl.getBoundingClientRect();
+    const parentRect = this.parentEl.getBoundingClientRect();
     return this.el.offsetWidth <= parentRect.x;
   }
 
   updatePrimaryPosition() {
-    let {primary} = this.positions;
+    const {primary} = this.positions;
     this.renderer.removeClass(this.el, this.getOpposite(primary));
     this.renderer.addClass(this.el, primary);
     this.renderer.setStyle(this.el, this.getOpposite(primary), `100%`);
@@ -120,7 +120,7 @@ export class PopupAreaDirective implements OnInit {
   }
 
   updateSecondaryPosition() {
-    let {primary, secondary} = this.positions;
+    const {primary, secondary} = this.positions;
 
     if (secondary == 'center') {
       if (primary == this.top || primary == this.bottom) {
@@ -136,9 +136,9 @@ export class PopupAreaDirective implements OnInit {
   }
 
   private calculateCenterOffset(offsetProperty, styleProperty) {
-    let property = this.el[offsetProperty];
-    let parentProperty = this.parentEl[offsetProperty];
-    let offset = parentProperty / 2 - property / 2;
+    const property = this.el[offsetProperty];
+    const parentProperty = this.parentEl[offsetProperty];
+    const offset = parentProperty / 2 - property / 2;
     this.renderer.setStyle(this.el, styleProperty, `${offset}px`);
   }
 

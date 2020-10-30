@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import * as moment_ from "moment";
+import * as moment_ from 'moment';
 const moment = moment_;
 
 @Component({
@@ -73,13 +73,13 @@ export class CalendarComponent implements OnInit, OnChanges {
   updateMonthView() {
     this.selectedYear = moment(this.selectedMonth);
 
-    let calendarViewStartDate = moment(this.selectedMonth).startOf('month').startOf('week');
-    let calendarViewEndDate = moment(this.selectedMonth).endOf('month').endOf('week');
+    const calendarViewStartDate = moment(this.selectedMonth).startOf('month').startOf('week');
+    const calendarViewEndDate = moment(this.selectedMonth).endOf('month').endOf('week');
 
     this.selectedMonthView = [];
     let currentDate = calendarViewStartDate;
     while (currentDate.isSameOrBefore(calendarViewEndDate)) {
-      let week = [];
+      const week = [];
       for (let i = 0; i < 7; i++) {
         week.push(moment(currentDate));
         currentDate = currentDate.add(1, 'd');

@@ -1,5 +1,5 @@
 import {AfterViewInit, Directive, ElementRef, Renderer2} from '@angular/core';
-import {AbstractInput} from "./abstract-input";
+import {AbstractInput} from './abstract-input';
 
 @Directive({
   selector: '[yourInput]'

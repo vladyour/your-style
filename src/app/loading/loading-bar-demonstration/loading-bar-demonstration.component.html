@@ -1,0 +1,9 @@
+<div class="loading-page">
+  <your-navbar>
+    <h1>Your logo is here</h1>
+    <your-loading-bar [tumbler]="loadingIndicator" barHeight="3px"></your-loading-bar>
+  </your-navbar>
+
+  <button yourButton type="button" class="m-v-xl" (click)="toggleLoading()">{{loadingIndicator ? 'Stop loading' : 'Start loading'}}</button>
+
+</div>

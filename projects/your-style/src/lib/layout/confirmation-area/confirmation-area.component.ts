@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {PopupAreaDirective} from "../popup-area/popup-area.directive";
+import {PopupAreaDirective} from '../popup-area/popup-area.directive';
 
 @Component({
   selector: 'your-confirmation-area',

@@ -1,8 +1,8 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
-  selector: 'okr-table',
+  selector: 'your-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
@@ -31,9 +31,9 @@ export class TableComponent implements OnInit, OnChanges {
   }
 
   setFilter = (filter) => {
-    let keys = Object.keys(filter) || [];
+    const keys = Object.keys(filter) || [];
     keys.forEach(key => this.filter[key] = filter[key]);
-  };
+  }
 
   onFilterChange = () => {
     this.router.navigate(
@@ -43,11 +43,11 @@ export class TableComponent implements OnInit, OnChanges {
         queryParams: this.filter,
         queryParamsHandling: 'merge'
       });
-  };
+  }
 
   changeSort(key: string) {
-    let oldSort = this.sort;
-    let oldKeys = Object.keys(oldSort);
+    const oldSort = this.sort;
+    const oldKeys = Object.keys(oldSort);
 
     this.sort = {};
 
@@ -57,9 +57,9 @@ export class TableComponent implements OnInit, OnChanges {
       this.sort[key] = 1;
     }
 
-    oldKeys.forEach(key => {
-      if (!this.sort[key]) {
-        this.sort[key] = oldSort[key];
+    oldKeys.forEach(oldKey => {
+      if (!this.sort[oldKey]) {
+        this.sort[oldKey] = oldSort[oldKey];
       }
     });
   }

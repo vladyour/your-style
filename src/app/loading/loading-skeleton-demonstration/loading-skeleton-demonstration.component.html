@@ -1,0 +1,7 @@
+<your-card size="l">
+  <button yourButton type="button" (click)="toggleLoading()">{{loadingIndicator ? 'Stop loading' : 'Start loading'}}</button>
+
+  <div [yourLoadingSkeletonBox]="loadingIndicator">
+    <div *ngFor="let i of [1, 2, 3]" [yourLoadingSkeleton]="i" [useAutoSize]="true" [widthPart]="10" [heightPart]="1"></div>
+  </div>
+</your-card>

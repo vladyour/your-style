@@ -1,5 +1,5 @@
 import {ContentChild, Directive, ElementRef, HostListener, Input, OnInit, Renderer2} from '@angular/core';
-import {PopupAreaDirective} from "./popup-area.directive";
+import {PopupAreaDirective} from './popup-area.directive';
 
 @Directive({
   selector: '[yourPopupAreaTrigger]'
@@ -25,7 +25,7 @@ export class PopupAreaTriggerDirective implements OnInit {
   }
 
   ngOnInit() {
-    this.el = this.element.nativeElement
+    this.el = this.element.nativeElement;
     this.renderer.addClass(this.el, 'popup-area-trigger');
     if (this.triggerType == 'click') {
       this.renderer.addClass(this.el, 'clickable-area');
@@ -54,7 +54,9 @@ export class PopupAreaTriggerDirective implements OnInit {
   @HostListener('mouseenter')
   onMouseEnter() {
     if (this.triggerType == 'hover') {
-      if (!!this.closeTimeout) clearTimeout(this.closeTimeout);
+      if (!!this.closeTimeout) {
+        clearTimeout(this.closeTimeout);
+      }
       this.openTimeout = setTimeout(this.openPopupArea, this.popupDelay);
     }
   }
@@ -62,15 +64,21 @@ export class PopupAreaTriggerDirective implements OnInit {
   @HostListener('mouseleave')
   onMouseLeave() {
     if (this.triggerType == 'hover') {
-      if (!!this.openTimeout) clearTimeout(this.openTimeout);
+      if (!!this.openTimeout) {
+        clearTimeout(this.openTimeout);
+      }
       this.closeTimeout = setTimeout(this.closePopupArea, 150);
     }
   }
 
   private openPopupArea = () => {
-    !!this.popupArea && this.popupArea.open();
+    if (!!this.popupArea) {
+      this.popupArea.open();
+    }
   }
   private closePopupArea = () => {
-    !!this.popupArea && this.popupArea.close();
+    if (!!this.popupArea) {
+      this.popupArea.close();
+    }
   }
 }

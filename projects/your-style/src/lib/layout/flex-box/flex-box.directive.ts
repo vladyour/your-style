@@ -29,7 +29,7 @@ export class FlexBoxDirective implements OnInit, OnChanges {
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 
   ngOnInit(): void {
-    this.renderer.addClass(this.el.nativeElement, 'your-flex-box')
+    this.renderer.addClass(this.el.nativeElement, 'your-flex-box');
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -44,19 +44,19 @@ export class FlexBoxDirective implements OnInit, OnChanges {
     }
 
     if (this.fullHeight != undefined) {
-      this.renderer.addClass(this.el.nativeElement, 'full-height')
+      this.renderer.addClass(this.el.nativeElement, 'full-height');
     }
 
     if (this.fullWidth != undefined) {
-      this.renderer.addClass(this.el.nativeElement, 'full-width')
+      this.renderer.addClass(this.el.nativeElement, 'full-width');
     }
 
     if (this.flexInline != undefined) {
-      this.renderer.addClass(this.el.nativeElement, 'flex-inline')
+      this.renderer.addClass(this.el.nativeElement, 'flex-inline');
     }
 
     if (this.wrap != undefined) {
-      this.renderer.addClass(this.el.nativeElement, 'wrap')
+      this.renderer.addClass(this.el.nativeElement, 'wrap');
     }
   }
 

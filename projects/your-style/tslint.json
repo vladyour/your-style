@@ -12,6 +12,14 @@
       "element",
       "your",
       "kebab-case"
-    ]
+    ],
+    "variable-name": [
+      true,
+      "allow-leading-underscore"
+    ],
+    "triple-equals": false,
+    "no-inferrable-types": false,
+    "no-trailing-whitespace": false,
+    "no-output-on-prefix": false
   }
 }

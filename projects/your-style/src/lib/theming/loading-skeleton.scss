@@ -1,0 +1,42 @@
+@import "config";
+
+.your-skeleton {
+  display: block;
+  margin: 5px 0;
+
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.loading.opacity .your-skeleton {
+  animation: 800ms ease-in-out infinite alternate both skeleton;
+}
+
+
+@keyframes skeleton {
+  0% {
+    opacity: 0.1;
+  }
+
+  40% {
+    opacity: 0.1;
+  }
+
+  100% {
+    opacity: 0.15;
+  }
+}
+
+@mixin loading_skeleton_style($style) {
+  .your-skeleton {
+    border-radius: map_get($style, border_radius);
+  }
+}
+
+@mixin loading_skeleton_theme($theme) {
+
+  $scheme: get_color_scheme($theme, back);
+  .your-skeleton.default-theme {
+    background: get_color($scheme, f);
+  }
+}

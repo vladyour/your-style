@@ -1,5 +1,5 @@
 import {Component, ElementRef, Input, OnInit, Renderer2} from '@angular/core';
-import {StyleBase} from "../../core/style-base";
+import {StyleBase} from '../../core/style-base';
 
 @Component({
   selector: 'your-card',
@@ -31,7 +31,7 @@ export class CardComponent extends StyleBase implements OnInit {
   }
 
   getTagPrefix(): string {
-    return "your-card";
+    return 'your-card';
   }
 
 }

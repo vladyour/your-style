@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -26,6 +26,9 @@ export class LoginComponent implements OnInit {
   @Input()
   wrongPasswordMessage = 'Password can\'t be empty';
 
+  @Output()
+  login = new EventEmitter<{ login: string, password: string }>();
+
   loginControl: FormControl;
 
   passwordControl: FormControl;
@@ -44,4 +47,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  onLogin() {
+    this.login.emit(this.loginForm.value);
+  }
 }

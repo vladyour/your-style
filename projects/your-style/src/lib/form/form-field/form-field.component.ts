@@ -1,5 +1,5 @@
 import {Component, ElementRef, Input, OnInit, Renderer2, ViewEncapsulation} from '@angular/core';
-import {StyleBase} from "../../core/style-base";
+import {StyleBase} from '../../core/style-base';
 
 @Component({
   selector: 'your-form-field',
@@ -20,7 +20,7 @@ export class FormFieldComponent extends StyleBase implements OnInit {
   }
 
   getTagPrefix(): string {
-    return "your-form-field";
+    return 'your-form-field';
   }
 
 }

@@ -9,6 +9,8 @@
 @import "form-field";
 @import "info-box";
 @import 'link';
+@import "loading-bar";
+@import "loading-skeleton";
 @import "main";
 @import "multiple-select";
 @import "navbar";
@@ -28,6 +30,7 @@
   @include font_style($style);
   @include form_field_style($style);
   @include info_box_style($style);
+  @include loading_skeleton_style($style);
   @include multiple_select_style($style);
   @include navbar_style($style);
   @include padding_and_margin_style($style);
@@ -44,6 +47,8 @@
   @include form_field_theme($theme);
   @include info_box_theme($theme);
   @include link_theme($theme);
+  @include loading_bar_theme($theme);
+  @include loading_skeleton_theme($theme);
   @include multiple_select_theme($theme);
   @include navbar_theme($theme);
   @include body_theme($theme);

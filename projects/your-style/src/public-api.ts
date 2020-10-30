@@ -31,5 +31,10 @@ export * from './lib/layout/popup-area/popup-area.directive';
 export * from './lib/layout/popup-area/popup-area-trigger.directive';
 export * from './lib/layout/navbar/navbar.component';
 
+export * from './lib/loading/loading.module';
+export * from './lib/loading/skeleton/loading-skeleton-box.directive';
+export * from './lib/loading/skeleton/loading-skeleton.directive';
+export * from './lib/loading/loading-bar/loading-bar.component';
+
 export * from './lib/core/style-base';
 

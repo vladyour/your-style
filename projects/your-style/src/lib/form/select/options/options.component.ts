@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {PopupAreaDirective} from "../../../layout/popup-area/popup-area.directive";
+import {PopupAreaDirective} from '../../../layout/popup-area/popup-area.directive';
 
 @Component({
   selector: 'your-options',
@@ -7,6 +7,8 @@ import {PopupAreaDirective} from "../../../layout/popup-area/popup-area.directiv
   styleUrls: ['./options.component.scss']
 })
 export class OptionsComponent {
+
+  constructor(private popupAreaDirective: PopupAreaDirective) { }
 
   @Input()
   options: any[] = [];
@@ -17,24 +19,10 @@ export class OptionsComponent {
   @Input()
   disabledOptions: any[] = [];
 
-  @Input()
-  filterFunction: (searchInput: string, option: any) => boolean = (searchInput, option) => {
-    let labelValue = this.labelValue(option).toLowerCase();
-    let splitSearch = searchInput.split(' ').filter(search => !!search);
-    return !splitSearch.length || splitSearch.some(search => labelValue.includes(search.toLowerCase()));
-  };
-
   searchValue: string;
 
   @Input()
   labelValue: (option) => string;
-
-  getLabelValue = (option) => {
-    let label;
-    if (typeof this.labelValue == 'string' && !!this.labelValue) label = option[this.labelValue];
-    if (typeof this.labelValue == 'function') label = this.labelValue(option);
-    return label || option;
-  }
 
   @Output()
   onSelect: EventEmitter<any> = new EventEmitter();
@@ -45,10 +33,22 @@ export class OptionsComponent {
   @Input()
   searchEnabled: boolean = false;
 
-  constructor(private popupAreaDirective: PopupAreaDirective) { }
+  @Input()
+  filterFunction: (searchInput: string, option: any) => boolean = (searchInput, option) => {
+    const labelValue = this.labelValue(option).toLowerCase();
+    const splitSearch = searchInput.split(' ').filter(search => !!search);
+    return !splitSearch.length || splitSearch.some(search => labelValue.includes(search.toLowerCase()));
+  }
+
+  getLabelValue = (option) => {
+    let label;
+    if (typeof this.labelValue == 'string' && !!this.labelValue) { label = option[this.labelValue]; }
+    if (typeof this.labelValue == 'function') { label = this.labelValue(option); }
+    return label || option;
+  }
 
   onOptionSelect($event, option) {
-    if (this.optionIsSelected(option) || this.optionIsDisabled(option)) return;
+    if (this.optionIsSelected(option) || this.optionIsDisabled(option)) { return; }
 
     this.onSelect.emit(option);
     $event.stopPropagation();
