@@ -7,9 +7,6 @@ import {DomSanitizer} from '@angular/platform-browser';
 export class LoadingSkeletonDirective implements OnInit {
 
   private _definedOrder: number;
-  get definedOrder(): number {
-    return this._definedOrder;
-  }
   @Input('yourLoadingSkeleton')
   set definedOrder(value: number) {
     this._definedOrder = value;
@@ -17,7 +14,7 @@ export class LoadingSkeletonDirective implements OnInit {
 
   private readonly element;
 
-  private _useAutoSize: boolean = false;
+  private _useAutoSize: boolean = true;
   @Input()
   set useAutoSize(useDefaultSize: boolean) {
     this._useAutoSize = useDefaultSize;
@@ -58,7 +55,7 @@ export class LoadingSkeletonDirective implements OnInit {
   }
 
   calculateDelayAndSet(defaultOrder: number, beat: number) {
-    this.renderer.setStyle(this.element, 'animation-delay', (defaultOrder * beat) + 'ms');
+    this.renderer.setStyle(this.element, 'animation-delay', ((this._definedOrder || defaultOrder) * beat) + 'ms');
   }
 
   private toggleDefaultTheme() {

@@ -16,7 +16,7 @@ import {LoadingActivator} from '../loading-activator';
 })
 export class LoadingSkeletonBoxDirective extends LoadingActivator implements AfterContentInit, OnChanges {
 
-  @ContentChildren(LoadingSkeletonDirective)
+  @ContentChildren(LoadingSkeletonDirective, {descendants: true})
   skeletons: QueryList<LoadingSkeletonDirective>;
 
   @Input('yourLoadingSkeletonBox')
