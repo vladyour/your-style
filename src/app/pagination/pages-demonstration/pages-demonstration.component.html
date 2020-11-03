@@ -1,0 +1,12 @@
+<your-card size="l">
+  <button (click)="loading = !loading">Start loading</button>
+
+  <your-pages
+    [(currentPage)]="currentPage"
+    [totalPages]="totalPages"
+    (currentPageChange)="changePage($event)"
+    [loading]="loading"
+  >
+    <h1 class="m-t-xl">CURRENT PAGE: {{currentPage}}</h1>
+  </your-pages>
+</your-card>

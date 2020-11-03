@@ -1,0 +1,62 @@
+<ng-content></ng-content>
+<div class="your-pages">
+  <button
+    class="your-page-element your-page-button"
+    type="button"
+    (click)="prevPage()"
+    [disabled]="prevIsDisabled || loading"
+  >
+    <i class="fas fa-chevron-left"></i>
+  </button>
+
+  <button
+    class="your-page-element your-page-button"
+    *ngFor="let pageNumber of firstPages"
+    [ngClass]="{current: pageNumber == currentPage}"
+    (click)="changePage(pageNumber)"
+    [disabled]="loading"
+  >
+    {{pageNumber}}
+  </button>
+
+  <div
+    class="your-page-element your-page-ellipsis"
+    [ngClass]="{disabled: loading}"
+    *ngIf="hasFirstEllipsis"
+  >...</div>
+
+  <button
+    class="your-page-element your-page-button"
+    *ngFor="let pageNumber of middlePages"
+    [ngClass]="{current: pageNumber == currentPage}"
+    (click)="changePage(pageNumber)"
+    [disabled]="loading"
+  >
+    {{pageNumber}}
+  </button>
+
+  <div
+    class="your-page-element your-page-ellipsis"
+    [ngClass]="{disabled: loading}"
+    *ngIf="hasLastEllipsis"
+  >...</div>
+
+  <button
+    class="your-page-element your-page-button"
+    *ngFor="let pageNumber of lastPages"
+    [ngClass]="{current: pageNumber == currentPage}"
+    (click)="changePage(pageNumber)"
+    [disabled]="loading"
+  >
+    {{pageNumber}}
+  </button>
+
+  <button
+    class="your-page-element your-page-button"
+    type="button"
+    (click)="nextPage()"
+    [disabled]="nextIsDisabled || loading"
+  >
+    <i class="fas fa-chevron-right"></i>
+  </button>
+</div>

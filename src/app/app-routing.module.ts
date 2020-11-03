@@ -4,10 +4,10 @@ import {SelectDemonstrationComponent} from './select-demonstration/select-demons
 import {BadgeDemonstrationComponent} from './badge-demonstration/badge-demonstration.component';
 import {ButtonDemonstrationComponent} from './button-demonstration/button-demonstration.component';
 import {CalendarDemonstrationComponent} from './calendar-demonstration/calendar-demonstration.component';
-import {NavbarDemonstrationComponent} from './navbar-demonstration/navbar-demonstration.component';
 import {LoginDemonstrationComponent} from './login-demonstration/login-demonstration.component';
 import {LoadingSkeletonDemonstrationComponent} from './loading/loading-skeleton-demonstration/loading-skeleton-demonstration.component';
 import {LoadingBarDemonstrationComponent} from './loading/loading-bar-demonstration/loading-bar-demonstration.component';
+import {PagesDemonstrationComponent} from './pagination/pages-demonstration/pages-demonstration.component';
 
 
 const routes: Routes = [
@@ -46,6 +46,20 @@ const routes: Routes = [
       {
         path: 'bar',
         component: LoadingBarDemonstrationComponent
+      }
+    ]
+  },
+  {
+    path: 'pagination',
+    children: [
+      {
+        path: '',
+        redirectTo: 'pages',
+        pathMatch: 'full'
+      },
+      {
+        path: 'pages',
+        component: PagesDemonstrationComponent
       }
     ]
   }

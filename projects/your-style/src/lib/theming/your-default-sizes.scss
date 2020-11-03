@@ -135,6 +135,23 @@ $navbar_config: (
     border_radius: 15px
   ),
 );
+$page_config: (
+  s: (
+    pages_padding: 15px,
+    page_number_size: 28px,
+    page_number_margin: 2px,
+  ),
+  m: (
+    pages_padding: 15px,
+    page_number_size: 36px,
+    page_number_margin: 2px,
+  ),
+  l: (
+    pages_padding: 15px,
+    page_number_size: 48px,
+    page_number_margin: 2px,
+  )
+);
 
 $your_style: (
   default_card_config: m,
@@ -163,6 +180,9 @@ $your_style: (
 
   navbar_config: $navbar_config,
   default_navbar_config: l,
+
+  page_config: $page_config,
+  default_page_style: m,
 
   border_radius: 4px,
   box_shadow: -5px 5px 10px 0 transparentize(darken(#232323, 10), 0.5)

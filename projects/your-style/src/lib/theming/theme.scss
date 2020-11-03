@@ -16,6 +16,7 @@
 @import "navbar";
 @import "options";
 @import 'padding-and-margin';
+@import "pages";
 @import "popup-area";
 @import "tab";
 @import "table";
@@ -34,6 +35,7 @@
   @include multiple_select_style($style);
   @include navbar_style($style);
   @include padding_and_margin_style($style);
+  @include pages_style($style);
   @include options_style($style);
 }
 
@@ -53,6 +55,7 @@
   @include navbar_theme($theme);
   @include body_theme($theme);
   @include options_theme($theme);
+  @include pages_theme($theme);
   @include tab_theme($theme);
   @include table_theme($theme);
 }

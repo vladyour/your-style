@@ -1,0 +1,81 @@
+@import "config";
+
+@mixin pages_style($style) {
+
+  $default_style_size: map-get($style, default_page_style);
+  $config: get_config($style, page_config);
+  $font_config: get_config($style, font_size_config);
+
+  @include set_style($config, $font_config, $default_style_size);
+
+  @each $config_name in get_config_names($config) {
+    your-pages.your-pages-size-#{$config_name} {
+      @include set_style($config, $font_config, $config_name);
+    }
+  }
+
+  .your-pages .your-page-element {
+    font-size: inherit;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in-out;
+    transition-property: opacity;
+    border-radius: map-get($style, border_radius);
+
+    &.current, &:hover {
+      transition-property: background-color, opacity;
+    }
+  }
+
+  .your-pages .your-page-button {
+    @include reset_button;
+  }
+}
+
+@mixin set_style($config, $font_config, $size_name) {
+  .your-pages {
+    padding: get_config_prop($config, $size_name, pages_padding);
+    font-size: map-get($font-config, $size_name);
+
+    .your-page-element {
+      width: get_config_prop($config, $size_name, page_number_size);
+      height: get_config_prop($config, $size_name, page_number_size);
+      margin: get_config_prop($config, $size_name, page_number_margin);
+    }
+  }
+}
+
+@mixin pages_theme($theme) {
+  $default_scheme: get_color_scheme($theme, secondary);
+
+  .your-pages {
+    @include set_theme($default_scheme);
+
+    .your-page-element {
+      &:disabled, &.disabled {
+        opacity: 0.3;
+      }
+    }
+  }
+
+  @each $scheme_name in get_schemes_names($theme) {
+    $scheme: get_color_scheme($theme, $scheme_name);
+
+    your-pages.your-pages-color-#{$scheme_name} .your-pages {
+      @include set_theme($scheme);
+    }
+  }
+}
+
+@mixin set_theme($scheme) {
+  .your-page-element {
+    color: get_color($scheme, f);
+  }
+
+  .your-page-button:hover:not(:disabled):not(.current) {
+    background: transparentize(get_color($scheme), 0.5);
+  }
+
+  .your-page-button.current, {
+    background: get_color($scheme);
+  }
+}

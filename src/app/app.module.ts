@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SelectDemonstrationComponent } from './select-demonstration/select-demonstration.component';
 import {FormsModule} from '@angular/forms';
+import {ButtonModule, FormModule, LayoutModule, LoadingModule, PaginationModule} from 'your-style';
+import { SelectDemonstrationComponent } from './select-demonstration/select-demonstration.component';
 import { BadgeDemonstrationComponent } from './badge-demonstration/badge-demonstration.component';
 import { ButtonDemonstrationComponent } from './button-demonstration/button-demonstration.component';
 import { CalendarDemonstrationComponent } from './calendar-demonstration/calendar-demonstration.component';
@@ -12,7 +13,7 @@ import { NavbarDemonstrationComponent } from './navbar-demonstration/navbar-demo
 import { LoginDemonstrationComponent } from './login-demonstration/login-demonstration.component';
 import { LoadingSkeletonDemonstrationComponent } from './loading/loading-skeleton-demonstration/loading-skeleton-demonstration.component';
 import { LoadingBarDemonstrationComponent } from './loading/loading-bar-demonstration/loading-bar-demonstration.component';
-import {ButtonModule, FormModule, LayoutModule, LoadingModule} from 'your-style';
+import { PagesDemonstrationComponent } from './pagination/pages-demonstration/pages-demonstration.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {ButtonModule, FormModule, LayoutModule, LoadingModule} from 'your-style'
     LoginDemonstrationComponent,
     LoadingSkeletonDemonstrationComponent,
     LoadingBarDemonstrationComponent,
+    PagesDemonstrationComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import {ButtonModule, FormModule, LayoutModule, LoadingModule} from 'your-style'
     FormsModule,
     ButtonModule,
     LoadingModule,
+    PaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

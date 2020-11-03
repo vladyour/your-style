@@ -36,5 +36,8 @@ export * from './lib/loading/skeleton/loading-skeleton-box.directive';
 export * from './lib/loading/skeleton/loading-skeleton.directive';
 export * from './lib/loading/loading-bar/loading-bar.component';
 
+export * from './lib/pagination/pagination.module';
+export * from './lib/pagination/pages/pages.component';
+
 export * from './lib/core/style-base';
 
