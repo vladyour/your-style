@@ -1,4 +1,4 @@
-import {HostListener, Renderer2, ViewChild, Directive, OnInit} from '@angular/core';
+import {Directive, HostListener, Renderer2, ViewChild} from '@angular/core';
 import {PopupAreaDirective} from '../../layout/popup-area/popup-area.directive';
 import {AbstractInput} from './abstract-input';
 
@@ -7,6 +7,8 @@ export abstract class DropdownFormField extends AbstractInput {
 
   @ViewChild(PopupAreaDirective)
   popupArea: PopupAreaDirective;
+
+  private opened: boolean = false;
 
   protected constructor(protected el, protected renderer: Renderer2) {
     super(el, renderer);
@@ -22,7 +24,7 @@ export abstract class DropdownFormField extends AbstractInput {
   @HostListener('click')
   @HostListener('keydown.enter')
   onPopupTriggerClick() {
-      this.openPopupArea();
+    this.openPopupArea();
   }
 
   @HostListener('document:click', ['$event'])
@@ -41,12 +43,17 @@ export abstract class DropdownFormField extends AbstractInput {
   protected openPopupArea = () => {
     if (!!this.popupArea) {
       this.popupArea.open();
+      this.opened = true;
     }
   }
   protected closePopupArea = () => {
     if (!!this.popupArea) {
       this.popupArea.close();
-      this.onTouched();
+
+      if (this.opened) {
+        this.onTouched();
+        this.opened = false;
+      }
     }
   }
 }

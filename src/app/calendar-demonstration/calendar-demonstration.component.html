@@ -1,3 +1,5 @@
-<your-form-field label="Calendar">
-  <your-date-time-picker [(ngModel)]="date"></your-date-time-picker>
-</your-form-field>
+<form [formGroup]="calendarForm">
+  <your-form-field label="Calendar">
+    <your-date-time-picker formControlName="date"></your-date-time-picker>
+  </your-form-field>
+</form>
