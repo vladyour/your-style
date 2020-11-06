@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class PagesDemonstrationComponent implements OnInit {
 
   currentPage = 9;
-  totalPages = 12;
+  totalPages: number = 12;
   loading: boolean = false;
 
   constructor() { }

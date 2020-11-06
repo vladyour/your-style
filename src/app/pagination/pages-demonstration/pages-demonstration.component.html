@@ -1,8 +1,13 @@
 <your-card size="l">
   <button (click)="loading = !loading">Start loading</button>
 
+  <your-form-field label="Total pages">
+    <input yourInput [(ngModel)]="totalPages" type="number"/>
+  </your-form-field>
+
   <your-pages
-    [(currentPage)]="currentPage"
+    [currentPage]="currentPage"
+    [bias]="1"
     [totalPages]="totalPages"
     (currentPageChange)="changePage($event)"
     [loading]="loading"

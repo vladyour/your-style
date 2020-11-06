@@ -9,6 +9,8 @@
     <i class="fas fa-chevron-left"></i>
   </button>
 
+  <span *ngIf="totalPages <= 0">No content</span>
+
   <button
     class="your-page-element your-page-button"
     *ngFor="let pageNumber of firstPages"

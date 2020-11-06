@@ -8,9 +8,12 @@ import {StyleBase} from '../../core/style-base';
 })
 export class PagesComponent extends StyleBase implements OnInit {
 
-  private _currentPage: number = 1;
+  @Input()
+  private bias: number = 1;
+
+  private _currentPage: number = 0;
   get currentPage(): number {
-    return this._currentPage;
+    return this._currentPage + this.bias;
   }
   @Input()
   set currentPage(value: number) {
@@ -23,11 +26,16 @@ export class PagesComponent extends StyleBase implements OnInit {
 
   private _totalPages: number = 0;
   get totalPages(): number {
-    return this._totalPages;
+    if (!!this._totalPages && this._totalPages > 0) {
+      return this._totalPages;
+    } else {
+      return 0;
+    }
   }
   @Input()
   set totalPages(value: number) {
     this._totalPages = value;
+    this.updateState();
   }
 
   private _loading: boolean = false;
@@ -70,12 +78,12 @@ export class PagesComponent extends StyleBase implements OnInit {
   }
 
   changePage(page: number) {
-    if (page == this.currentPage) {
+    const pageWithBias = page;
+    if (pageWithBias == this.currentPage) {
       return;
     }
 
-    this.currentPage = page;
-    this.currentPageChange.emit(this.currentPage);
+    this.currentPageChange.emit(pageWithBias - this.bias);
   }
 
   updateState() {
@@ -86,13 +94,13 @@ export class PagesComponent extends StyleBase implements OnInit {
     this.hasFirstEllipsis = !!this.firstPages.length && (!!this.middlePages.length || !!this.lastPages.length);
     this.hasLastEllipsis = !!this.middlePages.length && !!this.lastPages.length;
 
-    this.prevIsDisabled = this.currentPage == 1;
-    this.nextIsDisabled = this.currentPage == this.totalPages;
+    this.prevIsDisabled = this.currentPage == 1 || this.totalPages <= 0;
+    this.nextIsDisabled = this.currentPage == this.totalPages || this.totalPages <= 0;
   }
 
   getFirstPages(): number[] {
     if (this.totalPages <= 5) {
-      return [...Array(5).fill(0).map((_, i) => i + 1)];
+      return [...Array(this.totalPages).fill(0).map((_, i) => i + 1)];
     } else if (this.currentPage < 4) {
       return [...Array(4).fill(0).map((_, i) => i + 1)];
     } else {

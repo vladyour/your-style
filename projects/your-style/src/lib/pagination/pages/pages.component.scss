@@ -1,7 +1,10 @@
 :host {
   display: flex;
   flex-direction: column;
-  align-items: center;
+
+  .your-pages {
+    align-self: center;
+  }
 }
 
 .your-page-element {
