@@ -12,6 +12,8 @@ export abstract class DropdownFormField extends AbstractInput {
     super(el, renderer);
   }
 
+  protected onTouched: () => any;
+
   ngOnInit() {
     this.renderer.setAttribute(this.el, 'tabindex', '0');
     super.ngOnInit();
@@ -44,6 +46,7 @@ export abstract class DropdownFormField extends AbstractInput {
   protected closePopupArea = () => {
     if (!!this.popupArea) {
       this.popupArea.close();
+      this.onTouched();
     }
   }
 }

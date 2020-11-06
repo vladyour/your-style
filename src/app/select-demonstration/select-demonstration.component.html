@@ -34,17 +34,19 @@
   </your-card>
 
   <your-card size="l" yourFlexBox="vertical" yourFlexBoxBasis="250px" maxWidth="250px">
+    <form [formGroup]="form">
 
-    <h3 class="p-b-md">Object array #1</h3>
-    <h5 class="p-b-md">Bound value is id, displayed value is name</h5>
-    <your-form-field label="Countries" [ngClass]="{error: !selectedIdNameMountain}">
-      <your-select [options]="mountains" [(ngModel)]="selectedIdNameMountain" labelValue="name" bindValue="id"></your-select>
-      <span formFieldInfo *ngIf="!selectedIdNameMountain">At least one mountain should be selected</span>
-    </your-form-field>
+      <h3 class="p-b-md">Object array #1</h3>
+      <h5 class="p-b-md">Bound value is id, displayed value is name</h5>
+      <your-form-field label="Countries" [ngClass]="{error: this.selectedIdNameMountain.invalid && this.selectedIdNameMountain.touched}">
+        <your-select [options]="mountains" formControlName="selectedIdNameMountain" labelValue="name" bindValue="id"></your-select>
+        <span formFieldInfo *ngIf="this.selectedIdNameMountain.invalid && this.selectedIdNameMountain.touched">At least one mountain should be selected</span>
+      </your-form-field>
 
-    <h5 class="p-t-md">
-      Selected value: <b *ngIf="selectedIdNameMountain != null; else nothingSelected">{{selectedIdNameMountain}}</b>
-    </h5>
+      <h5 class="p-t-md">
+        Selected value: <b *ngIf="selectedIdNameMountain != null; else nothingSelected">{{selectedIdNameMountain}}</b>
+      </h5>
+    </form>
 
   </your-card>
 

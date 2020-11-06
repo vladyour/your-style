@@ -116,6 +116,8 @@ export abstract class AbstractSelect<T> extends DropdownFormField implements Con
     return label || option;
   }
 
-  registerOnTouched(fn: any): void {}
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
 }
 

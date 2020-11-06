@@ -19,6 +19,8 @@ export * from './lib/button/button.directive';
 
 export * from './lib/table/table.module';
 export * from './lib/table/table.component';
+export * from './lib/table/pipes/table-filter.pipe';
+export * from './lib/table/pipes/table-sort.pipe';
 
 export * from './lib/layout/layout.module';
 export * from './lib/layout/card/card.component';

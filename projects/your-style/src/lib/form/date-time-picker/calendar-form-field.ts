@@ -32,5 +32,7 @@ export abstract class CalendarFormField extends DropdownFormField implements Con
     this.onChangeValue = fn;
   }
 
-  registerOnTouched(fn: any): void {}
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
 }

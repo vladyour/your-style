@@ -37,7 +37,8 @@ export class DateTimePickerComponent extends CalendarFormField {
   onDateSelect = (newDate) => {
     this.value = newDate;
     if (!!newDate) {
-      this.onChangeValue(this.value.toDate());
+      const date = this.value.toDate();
+      this.onChangeValue(date.setMinutes(date.getMinutes() - date.getTimezoneOffset()));
     } else {
       this.onChangeValue(null);
     }

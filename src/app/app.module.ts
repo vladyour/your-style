@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ButtonModule, FormModule, LayoutModule, LoadingModule, PaginationModule} from 'your-style';
 import { SelectDemonstrationComponent } from './select-demonstration/select-demonstration.component';
 import { BadgeDemonstrationComponent } from './badge-demonstration/badge-demonstration.component';
@@ -37,6 +37,7 @@ import { PagesDemonstrationComponent } from './pagination/pages-demonstration/pa
     ButtonModule,
     LoadingModule,
     PaginationModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

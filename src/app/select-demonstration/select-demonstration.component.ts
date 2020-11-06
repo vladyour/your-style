@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Mountain } from '../models/mountain';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'ysd-select-demonstration',
@@ -13,18 +14,27 @@ export class SelectDemonstrationComponent implements OnInit {
   plainOptions: string[];
   selectedPlainMountain: string;
 
-  selectedIdNameMountain: number;
+  selectedIdNameMountain: FormControl;
 
   selectedMountain: Mountain;
 
   multipleMountains: Mountain[];
 
-  constructor() { }
+  form: FormGroup;
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.initMountains();
     this.initPlainOptions();
     this.initMultipleMountains();
+
+    this.selectedIdNameMountain = this.fb.control(null, Validators.required);
+
+    this.form  = this.fb.group({
+      selectedIdNameMountain: this.selectedIdNameMountain
+      }
+    );
   }
 
   private initPlainOptions() {
