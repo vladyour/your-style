@@ -8,9 +8,15 @@ import {LoginDemonstrationComponent} from './login-demonstration/login-demonstra
 import {LoadingSkeletonDemonstrationComponent} from './loading/loading-skeleton-demonstration/loading-skeleton-demonstration.component';
 import {LoadingBarDemonstrationComponent} from './loading/loading-bar-demonstration/loading-bar-demonstration.component';
 import {PagesDemonstrationComponent} from './pagination/pages-demonstration/pages-demonstration.component';
+import {ExpandableAreaDemonstrationComponent} from './expandable-area-demonstration/expandable-area-demonstration.component';
 
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'expandable-area',
+    pathMatch: 'full'
+  },
   {
     path: 'select',
     component: SelectDemonstrationComponent
@@ -62,6 +68,10 @@ const routes: Routes = [
         component: PagesDemonstrationComponent
       }
     ]
+  },
+  {
+    path: 'expandable-area',
+    component: ExpandableAreaDemonstrationComponent
   }
 ];
 

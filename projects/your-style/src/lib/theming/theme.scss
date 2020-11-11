@@ -4,6 +4,7 @@
 @import "card";
 @import "checkbox";
 @import "drop-down-menu";
+@import "expandable-area";
 @import 'flex-box';
 @import 'font';
 @import "form-field";
@@ -46,6 +47,7 @@
   @include calendar_theme($theme);
   @include checkbox_theme($theme);
   @include drop_down_theme($theme);
+  @include expandable_area_theme($theme);
   @include form_field_theme($theme);
   @include info_box_theme($theme);
   @include link_theme($theme);

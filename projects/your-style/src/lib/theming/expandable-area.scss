@@ -1,0 +1,27 @@
+@import "config";
+
+@mixin expandable_area_theme($theme) {
+  $default_scheme: get_color_scheme($theme);
+
+  .expandable-area-chevron {
+    color: get_color($default_scheme, f);
+
+    .chevron-line {
+      background: get_color($default_scheme, f);
+    }
+  }
+
+  @each $scheme_name in get_schemes_names($theme) {
+    $scheme: get_color_scheme($theme, $scheme_name);
+
+    .your-expandable-area-#{$scheme_name} {
+      .expandable-area-chevron {
+        color: get_color($scheme, f);
+
+        .chevron-line {
+          background: get_color($scheme, f);
+        }
+      }
+    }
+  }
+}

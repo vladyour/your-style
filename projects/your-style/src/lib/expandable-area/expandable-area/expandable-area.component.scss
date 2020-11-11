@@ -1,0 +1,45 @@
+.expandable-area-chevron {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.collapsed:hover .chevron-line {
+    transform: translateY(3px);
+  }
+
+  &.expanded:hover .chevron-line {
+    transform: translateY(-3px);
+  }
+
+  .chevron-line {
+    height: 2px;
+    width: 100%;
+    border-radius: 2px;
+    margin: 10px 5px;
+    transition: transform ease-in-out 200ms;
+  }
+
+  .chevron {
+    transition: transform ease-in-out 200ms;
+  }
+
+  &.expanded .chevron {
+    transform: rotate(180deg);
+  }
+
+  &.expanded:hover .chevron {
+    transform: rotate(180deg) translateY(5px);
+  }
+
+  &.collapsed:hover .chevron {
+    transform: translateY(5px);
+  }
+
+}

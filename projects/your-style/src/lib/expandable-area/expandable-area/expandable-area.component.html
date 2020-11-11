@@ -1,0 +1,8 @@
+<div [@expandableAreaTrigger]="{value: animationState, params: params}">
+  <ng-content></ng-content>
+</div>
+<div class="expandable-area-chevron {{animationState}}" (click)="expanded = !expanded">
+  <div class="chevron-line"></div>
+  <i class="fas fa-chevron-down chevron"></i>
+  <div class="chevron-line"></div>
+</div>
