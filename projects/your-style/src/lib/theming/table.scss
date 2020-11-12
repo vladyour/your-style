@@ -8,6 +8,14 @@
 
   .your-table-filter-row {
     background: darken($background, 3);
+
+    .your-table-filter-cell .your-table-input {
+      color: $color;
+    }
+  }
+
+  .your-table-header-row {
+    background: $background;
   }
 
   .your-table-result-row {

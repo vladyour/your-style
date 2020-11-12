@@ -9,7 +9,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class TableComponent implements OnInit, OnChanges {
 
   @Input()
-  data: [];
+  data: any[];
 
   @Input()
   displayedColumns = [];
