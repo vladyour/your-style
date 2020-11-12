@@ -5,11 +5,13 @@ import { FlexBoxDirective } from './flex-box/flex-box.directive';
 import { FlexBoxBasisDirective } from './flex-box/flex-box-basis.directive';
 import { TabComponent } from './tab-group/tab/tab.component';
 import { TabGroupComponent } from './tab-group/tab-group.component';
-import { PopupAreaDirective } from './popup-area/popup-area.directive';
 import { PopupAreaTriggerDirective } from './popup-area/popup-area-trigger.directive';
 import { ConfirmationAreaComponent } from './confirmation-area/confirmation-area.component';
 import { ButtonModule } from '../button/button.module';
 import { NavbarComponent } from './navbar/navbar.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { PopupAreaComponent } from './popup-area/popup-area/popup-area.component';
 
 
 
@@ -21,7 +23,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     TabComponent,
     TabGroupComponent,
     PopupAreaTriggerDirective,
-    PopupAreaDirective,
+    PopupAreaComponent,
     ConfirmationAreaComponent,
     NavbarComponent,
   ],
@@ -32,13 +34,15 @@ import { NavbarComponent } from './navbar/navbar.component';
     TabGroupComponent,
     TabComponent,
     PopupAreaTriggerDirective,
-    PopupAreaDirective,
+    PopupAreaComponent,
     ConfirmationAreaComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
-    imports: [
-        CommonModule,
-        ButtonModule
-    ]
+  imports: [
+    CommonModule,
+    ButtonModule,
+    BrowserModule,
+    BrowserAnimationsModule
+  ]
 })
 export class LayoutModule { }

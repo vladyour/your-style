@@ -1,0 +1,22 @@
+:host {
+  position: absolute;
+  z-index: 100;
+
+  &.h-center {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.v-center {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.max-content {
+    width: max-content;
+  }
+
+  &.fill-container {
+    width: 100%;
+  }
+}

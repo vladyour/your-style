@@ -2,20 +2,19 @@
   <span class="your_select_value_single" *ngIf="hasValue() && !!options">{{getLabelValue(getOptionByBindValue(value))}}</span>
 </div>
 
-<your-options
-  [options]="options"
-  [filterFunction]="filterFunction"
-  (onSelect)="selectOption($event)"
-  [selectedOptions]="getSelectedOptions()"
-  [disabledOptions]="disabledOptions"
-  [closeOnSelect]="closeOnSelect"
-  [labelValue]="getLabelValue"
-  [searchEnabled]="true"
-  yourPopupArea
-  position="bottom center"
-  width="100%"
->
-</your-options>
+<your-popup-area position="bottom" width="100%">
+  <your-options
+    [options]="options"
+    [filterFunction]="filterFunction"
+    (onSelect)="selectOption($event)"
+    [selectedOptions]="getSelectedOptions()"
+    [disabledOptions]="disabledOptions"
+    [closeOnSelect]="closeOnSelect"
+    [labelValue]="getLabelValue"
+    [searchEnabled]="true"
+  >
+  </your-options>
+</your-popup-area>
 
 <div class="form_field_icons">
   <span class="form_field_icon form_field_icon_clear" *ngIf="hasValue()" (click)="clearValue($event)"><i class="fas fa-times"></i></span>

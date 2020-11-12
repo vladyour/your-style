@@ -1,5 +1,5 @@
 import {ContentChild, Directive, ElementRef, HostListener, Input, OnInit, Renderer2} from '@angular/core';
-import {PopupAreaDirective} from './popup-area.directive';
+import {PopupAreaComponent} from './popup-area/popup-area.component';
 
 @Directive({
   selector: '[yourPopupAreaTrigger]'
@@ -12,8 +12,8 @@ export class PopupAreaTriggerDirective implements OnInit {
   @Input()
   popupDelay: number = 5;
 
-  @ContentChild(PopupAreaDirective)
-  popupArea: PopupAreaDirective;
+  @ContentChild(PopupAreaComponent)
+  popupArea: PopupAreaComponent;
 
   private openTimeout;
   private closeTimeout;
@@ -74,6 +74,8 @@ export class PopupAreaTriggerDirective implements OnInit {
   private openPopupArea = () => {
     if (!!this.popupArea) {
       this.popupArea.open();
+    } else {
+      console.warn('This clicked/hovered element is trigger for a your-popup-area which is not provided.');
     }
   }
   private closePopupArea = () => {

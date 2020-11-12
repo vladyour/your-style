@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {PopupAreaDirective} from '../popup-area/popup-area.directive';
+import {PopupAreaComponent} from '../popup-area/popup-area/popup-area.component';
 
 @Component({
   selector: 'your-confirmation-area',
@@ -22,7 +22,7 @@ export class ConfirmationAreaComponent implements OnInit, AfterViewInit {
   @Output()
   onDecline: EventEmitter<any> = new EventEmitter();
 
-  constructor(private directive: PopupAreaDirective) { }
+  constructor(private popupArea: PopupAreaComponent) { }
 
   ngOnInit(): void {
   }
@@ -34,12 +34,12 @@ export class ConfirmationAreaComponent implements OnInit, AfterViewInit {
   submit($event) {
     this.onSubmit.emit($event);
     $event.stopPropagation();
-    this.directive.close();
+    this.popupArea.close();
   }
 
   decline($event) {
     this.onDecline.emit($event);
     $event.stopPropagation();
-    this.directive.close();
+    this.popupArea.close();
   }
 }

@@ -5,10 +5,10 @@
   <span class="form_field_icon form_field_icon_clear" (click)="clearValue($event)" *ngIf="!!value"><i class="fas fa-times"></i></span>
   <i class="form_field_icon far fa-calendar-alt"></i>
 </div>
-<your-calendar
-  (onDateSelected)="onDateSelect($event)"
-  [style]="yourStyle"
-  [selectedDate]="value"
-  yourPopupArea
-  position="bottom center"
-></your-calendar>
+<your-popup-area position="bottom" width="100%">
+  <your-calendar
+    (onDateSelected)="onDateSelect($event)"
+    [style]="yourStyle"
+    [selectedDate]="value"
+  ></your-calendar>
+</your-popup-area>

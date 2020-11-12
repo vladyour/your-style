@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {PopupAreaDirective} from '../../../layout/popup-area/popup-area.directive';
+import {PopupAreaComponent} from '../../../layout/popup-area/popup-area/popup-area.component';
 
 @Component({
   selector: 'your-options',
@@ -8,7 +8,7 @@ import {PopupAreaDirective} from '../../../layout/popup-area/popup-area.directiv
 })
 export class OptionsComponent {
 
-  constructor(private popupAreaDirective: PopupAreaDirective) { }
+  constructor(private popupArea: PopupAreaComponent) { }
 
   @Input()
   options: any[] = [];
@@ -54,7 +54,7 @@ export class OptionsComponent {
     $event.stopPropagation();
 
     if (this.closeOnSelect) {
-      this.popupAreaDirective.close();
+      this.popupArea.close();
     }
   }
 

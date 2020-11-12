@@ -22,7 +22,9 @@ export class SelectComponent extends AbstractSelect<any> {
   closeOnSelect = true;
 
   getSelectedOptions(): any[] {
-    return this.options.filter(this.optionIsSelected);
+    if (Array.isArray(this.options)) {
+      return this.options.filter(this.optionIsSelected);
+    }
   }
 
   hasValue(): boolean {

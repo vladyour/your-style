@@ -12,7 +12,6 @@ import {CalendarComponent} from './date-time-picker/calendar/calendar.component'
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { OptionsComponent } from './select/options/options.component';
 import { MultipleSelectComponent } from './select/multiple-select/multiple-select.component';
-import {PopupAreaDirective} from '../layout/popup-area/popup-area.directive';
 import { LoginComponent } from './login/login.component';
 import {ButtonModule} from '../button/button.module';
 
@@ -48,9 +47,6 @@ import {ButtonModule} from '../button/button.module';
     LayoutModule,
     ReactiveFormsModule,
     ButtonModule,
-  ],
-  providers: [
-    PopupAreaDirective
   ]
 })
 export class FormModule { }

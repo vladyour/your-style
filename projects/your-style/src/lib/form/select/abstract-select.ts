@@ -20,8 +20,17 @@ export abstract class AbstractSelect<T> extends DropdownFormField implements Con
 
   private _value: T;
 
+  private _options;
+  get options() {
+    return this._options || [];
+  }
   @Input()
-  options: any[];
+  set options(value: any[]) {
+    if (!Array.isArray(this.options)) {
+      console.warn('Provided options are not an array.', this.options);
+    }
+    this._options = value;
+}
 
   @Input()
   disabledOptions: any[];
