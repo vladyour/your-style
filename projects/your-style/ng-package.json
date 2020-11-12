@@ -6,5 +6,9 @@
   ],
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "tslib",
+    "@angular/animations"
+  ]
 }

@@ -34,15 +34,15 @@ export class PopupAreaComponent implements OnInit {
   private width: 'max-content' | '100%' | string = 'max-content';
 
   private readonly el;
-  private readonly parentEl;
+  private parentEl;
 
   constructor(elRef: ElementRef, private renderer: Renderer2) {
     this.el = elRef.nativeElement;
-    this.parentEl = this.el.parentElement;
   }
 
   ngOnInit() {
     this.renderer.setStyle(this.el, 'width', this.width);
+    this.parentEl = this.el.parentElement;
   }
 
   open() {

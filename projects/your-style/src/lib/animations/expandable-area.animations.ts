@@ -1,6 +1,6 @@
 import {animate, animation, state, style, transition, trigger, useAnimation} from '@angular/animations';
 
-export const expandableAreaAnimation = () => {
+export function expandableAreaAnimation() {
   return trigger(`expandableAreaTrigger`, [
     state('collapsed', style({
       height: '{{minHeight}}',
@@ -14,7 +14,7 @@ export const expandableAreaAnimation = () => {
       useAnimation(expandingAnimation)
     ])
   ]);
-};
+}
 
 const timingFunction = 'cubic-bezier( 0.5, 0, 0.8, 1)';
 

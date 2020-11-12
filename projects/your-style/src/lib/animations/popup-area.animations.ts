@@ -4,7 +4,7 @@ const p100 = '100%';
 const invisible = 'invisible';
 const timings = '250ms ease-in-out';
 
-export const popupAreaAnimation = () => {
+export function popupAreaAnimation() {
   return trigger('popupAreaTrigger', [
     state(invisible, style({
       visibility: 'hidden',
