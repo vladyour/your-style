@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, Renderer2, ViewEncapsulation} from '@angular/core';
+import {Component, ElementRef, Input, EventEmitter, Output, Renderer2, ViewEncapsulation} from '@angular/core';
 import {expandableAreaAnimation} from '../../animations/expandable-area.animations';
 import {StyleBase} from '../../core/style-base';
 
@@ -27,7 +27,18 @@ export class ExpandableAreaComponent extends StyleBase {
     return this.expanded ? 'expanded' : 'collapsed';
   }
 
-  expanded: boolean = true;
+  @Output()
+  expandedChange = new EventEmitter();
+
+  private _expanded: boolean = true;
+  @Input()
+  get expanded() {
+    return this._expanded;
+  }
+  set expanded(value: boolean) {
+    this._expanded = value;
+    this.expandedChange.emit(this._expanded);
+  }
 
   constructor(protected el: ElementRef, protected renderer: Renderer2) {
     super(el, renderer);

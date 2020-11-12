@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpandableAreaDemonstrationComponent implements OnInit {
 
+  expanded = false;
+
   constructor() { }
 
   ngOnInit(): void {
