@@ -28,7 +28,13 @@ export class SelectComponent extends AbstractSelect<any> {
   }
 
   hasValue(): boolean {
-    return this.value != null && (typeof this.value != 'string' || !!this.value.length);
+    if (!this.value) {
+      return false;
+    }
+    if (typeof this.value == 'string' || Array.isArray(this.value)) {
+      return !!this.value.length;
+    }
+    return true;
   }
 
   optionIsSelected = (option): boolean => {

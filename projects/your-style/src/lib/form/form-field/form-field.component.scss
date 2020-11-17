@@ -23,6 +23,8 @@
     cursor: pointer;
 
     .form_field_value {
+      overflow: hidden;
+      text-overflow: ellipsis;
       min-height: 1.145em;
     }
   }

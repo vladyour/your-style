@@ -1,7 +1,7 @@
 .popup-area-trigger {
   position: relative;
 
-  &.clickable-area {
+  &.clickable-area:not([disabled]) {
     cursor: pointer;
   }
 }

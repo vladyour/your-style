@@ -39,7 +39,7 @@ export function popupAreaAnimation() {
       group([useAnimation(getOutAnimation('right')), useAnimation(disappearingAnimation)])
     ]),
   ]);
-};
+}
 
 const appearingAnimation = animation([
   style({visibility: 'visible', opacity: 0}),

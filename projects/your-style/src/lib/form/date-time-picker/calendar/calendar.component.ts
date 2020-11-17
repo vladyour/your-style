@@ -16,9 +16,6 @@ export class CalendarComponent implements OnInit, OnChanges {
   weekStartsWith: 0 | 1 = 1;
 
   @Input()
-  locale = 'en';
-
-  @Input()
   style;
 
   daysOfWeek;
@@ -30,7 +27,7 @@ export class CalendarComponent implements OnInit, OnChanges {
   selectedYear;
 
   constructor() {
-    moment.updateLocale(this.locale, {
+    moment.updateLocale(moment.locale(), {
       week: {
         dow: this.weekStartsWith,
         doy: 1

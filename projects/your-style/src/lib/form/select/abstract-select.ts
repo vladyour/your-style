@@ -30,7 +30,7 @@ export abstract class AbstractSelect<T> extends DropdownFormField implements Con
       console.warn('Provided options are not an array.', this.options);
     }
     this._options = value;
-}
+  }
 
   @Input()
   disabledOptions: any[];

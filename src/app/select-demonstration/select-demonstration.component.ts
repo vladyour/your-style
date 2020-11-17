@@ -18,7 +18,7 @@ export class SelectDemonstrationComponent implements OnInit {
 
   selectedMountain: Mountain;
 
-  multipleMountains: Mountain[];
+  multipleMountains: Mountain[] = [];
 
   form: FormGroup;
 
@@ -43,7 +43,7 @@ export class SelectDemonstrationComponent implements OnInit {
 
   private initMountains() {
     this.mountains = [
-      new Mountain(1, 'Mount Everest', 8848, 'Himalayas', 'Nepal/China'),
+      new Mountain(1, 'Mount Everest VERY LONG NAME VEEEERY', 8848, 'Himalayas', 'Nepal/China'),
       new Mountain(2, 'K2', 8611, 'Karakoram', 'Pakistan'),
       new Mountain(3, 'Cerro El Muerto', 6488, 'Andes', 'Argentina/Chile'),
       new Mountain(4, 'Aconcagua', 6962, 'Andes', 'Argentina'),
