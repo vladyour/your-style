@@ -14,7 +14,6 @@
 @mixin drop_drown_style($style) {
   .your_drop_down_content {
     border-radius: map_get($style, border_radius);
-    box-shadow: map_get($style, box_shadow);
   }
 }
 

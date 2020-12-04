@@ -1,5 +1,5 @@
 @import "theme";
-@import "your-dark-colors";
+@import "your-light-colors";
 
 $back_scheme: (
   n: $back,
@@ -53,8 +53,8 @@ $dark-theme: (
     error: $error_scheme
   ),
 
-  box_shadow: -5px 5px 10px 0 transparentize(darken($back, 10), 0.5),
-  body_gradient: linear-gradient(45deg, lighten($back, 12.55), $back) no-repeat fixed
+  box_shadow: -5px 5px 10px 0 transparentize(darken($back, 10), 0.1),
+  body_gradient: linear-gradient(45deg, #f0f2f5, #f0f2f5) no-repeat fixed
 );
 
 @include theme($dark-theme);

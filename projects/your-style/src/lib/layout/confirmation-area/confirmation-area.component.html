@@ -6,6 +6,12 @@
     {{confirmationText}}
   </span>
 
-  <button type="button" yourButton color="error" (click)="submit($event)">Yes</button>
-  <button type="button" yourButton color="success" (click)="decline($event)">No</button>
+  <button type="button" yourButton color="error" (click)="submit($event)">
+    <ng-content select="[yesButtonContent]"></ng-content>
+    <span>{{yesText}}</span>
+  </button>
+  <button type="button" yourButton color="success" (click)="decline($event)">
+    <ng-content select="[noButtonContent]"></ng-content>
+    <span>{{noText}}</span>
+  </button>
 </your-card>

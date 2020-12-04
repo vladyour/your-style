@@ -3,7 +3,6 @@
 
 @mixin card_style($style) {
   your-card {
-    box-shadow: map_get($style, box_shadow);
 
     $size_config: get_config($style, card_config);
     $default_config_name: map_get($style, default_card_config);
@@ -30,5 +29,6 @@
     background: $background;
 
     color: get_color($scheme, f);
+    box-shadow: get_box_shadow($theme);
   }
 }

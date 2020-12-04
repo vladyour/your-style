@@ -184,8 +184,7 @@ $your_style: (
   page_config: $page_config,
   default_page_style: m,
 
-  border_radius: 4px,
-  box_shadow: -5px 5px 10px 0 transparentize(darken(#232323, 10), 0.5)
+  border_radius: 4px
 );
 
 @include yourStyle($your_style);

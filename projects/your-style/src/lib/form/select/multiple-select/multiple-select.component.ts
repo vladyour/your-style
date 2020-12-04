@@ -45,15 +45,16 @@ export class MultipleSelectComponent extends AbstractSelect<any[]> implements On
     if (!this.value) {
       this.value = [];
     }
-    this.value.push(value);
+    this.value = this.value.concat(value);
   }
 
   deleteOption($event, index) {
     $event.stopPropagation();
-    this.value.splice(index, 1);
-    if (!this.value.length) {
+    const newValue = this.value.filter((_, i) => i != index);
+    if (!newValue.length) {
       this.value = null;
+    } else {
+      this.value = newValue;
     }
-    this.onValueUpdate();
   }
 }

@@ -18,6 +18,7 @@
 @mixin options_theme($theme) {
   $scheme: get_color_scheme($theme, back);
   $normal: get_color($scheme);
+  $font_color: get_color($scheme, f);
 
   .your_options {
     .your_options_search {
@@ -25,8 +26,10 @@
     }
 
     .your_option {
+      color: transparentize($font_color, 0.5);
       &:not(.disabled):not(.selected) {
         background: $normal;
+        color: $font_color;
       }
 
       &:hover:not(.disabled):not(.selected) {

@@ -7,7 +7,6 @@
     $size_config: get_config($style, navbar_config);
 
     .your-navbar {
-      box-shadow: map_get($style, box_shadow);
       padding: get_config_prop($size_config, $default_config_name, padding);
     }
   }
@@ -19,10 +18,8 @@
 
     .your-navbar {
       $scheme: get_color_scheme($theme, back);
-
-      $background: get_color($scheme);
-      $background2: lighten($background, 12.55);
-      background: get_gradient_background($background, $background2, 45deg, no-repeat, fixed);
+      background: get_gradient_background($theme);
+      box-shadow: get_box_shadow($theme);
     }
   }
 }

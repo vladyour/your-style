@@ -11,19 +11,23 @@
 }
 
 @function get_schemes_names($theme) {
-  @return map_keys($theme);
+  @return map_keys(map_get($theme, scheme));
 }
 
 @function get_color_scheme($theme, $scheme_name: default) {
-  @return map_get($theme, $scheme_name);
+  @return map_get(map_get($theme, scheme), $scheme_name);
 }
 
 @function get_color($scheme, $hue: n) {
   @return map_get($scheme, $hue);
 }
 
-@function get_gradient_background($color1, $color2, $deg: 90deg, $repeat: inherit, $position: inherit) {
-  @return linear-gradient($deg, $color1, $color2) $repeat $position;
+@function get_gradient_background($theme) {
+  @return map_get($theme, body_gradient);
+}
+
+@function get_box_shadow($theme) {
+  @return map_get($theme, box_shadow);
 }
 
 @mixin reset_button {

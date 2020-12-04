@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ButtonModule, ExpandableAreaModule, FormModule, LayoutModule, LoadingModule, PaginationModule, TableModule} from 'your-style';
+import {ButtonModule, ExpandableAreaModule, LayoutModule, LoadingModule, PaginationModule, TableModule} from 'your-style';
 import { SelectDemonstrationComponent } from './select-demonstration/select-demonstration.component';
 import { BadgeDemonstrationComponent } from './badge-demonstration/badge-demonstration.component';
 import { ButtonDemonstrationComponent } from './button-demonstration/button-demonstration.component';
@@ -15,6 +15,7 @@ import { LoadingSkeletonDemonstrationComponent } from './loading/loading-skeleto
 import { LoadingBarDemonstrationComponent } from './loading/loading-bar-demonstration/loading-bar-demonstration.component';
 import { PagesDemonstrationComponent } from './pagination/pages-demonstration/pages-demonstration.component';
 import { ExpandableAreaDemonstrationComponent } from './expandable-area-demonstration/expandable-area-demonstration.component';
+import {FormModule} from '../../projects/your-style/src/lib/form/form.module';
 
 @NgModule({
   declarations: [

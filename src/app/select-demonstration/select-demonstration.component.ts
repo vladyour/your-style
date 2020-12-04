@@ -35,6 +35,10 @@ export class SelectDemonstrationComponent implements OnInit {
       selectedIdNameMountain: this.selectedIdNameMountain
       }
     );
+
+    this.form.valueChanges.subscribe(data => {
+      console.log('DATA CHANGED', data);
+    });
   }
 
   private initPlainOptions() {

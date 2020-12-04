@@ -69,7 +69,6 @@ export abstract class AbstractSelect<T> extends DropdownFormField implements Con
   selectOption(option) {
     const bindValue = this.getBindValue(option);
     this.updateValueWithValue(bindValue);
-    this.onValueUpdate();
   }
 
   abstract getSelectedOptions(): any[];

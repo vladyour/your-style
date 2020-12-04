@@ -11,7 +11,7 @@
   $normal: get_color($scheme);
 
   .your_select_multiple_value {
-    $border_color: lighten($normal, 4);
+    $border_color: darken($normal, 8);
     background: $normal;
     border: 1px solid $border_color;
 

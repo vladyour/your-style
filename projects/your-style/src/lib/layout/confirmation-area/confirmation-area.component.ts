@@ -1,4 +1,16 @@
-import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
 import {PopupAreaComponent} from '../popup-area/popup-area/popup-area.component';
 
 @Component({
@@ -15,6 +27,10 @@ export class ConfirmationAreaComponent implements OnInit, AfterViewInit {
 
   @Input()
   confirmationText: string = 'Are you sure?';
+  @Input()
+  yesText: string;
+  @Input()
+  noText: string;
 
   @Output()
   onSubmit: EventEmitter<any> = new EventEmitter();

@@ -22,7 +22,7 @@ export class OptionsComponent {
   searchValue: string;
 
   @Input()
-  labelValue: (option) => string;
+  labelValue: ((option) => string) | string;
 
   @Output()
   onSelect: EventEmitter<any> = new EventEmitter();
@@ -35,7 +35,7 @@ export class OptionsComponent {
 
   @Input()
   filterFunction: (searchInput: string, option: any) => boolean = (searchInput, option) => {
-    const labelValue = this.labelValue(option).toLowerCase();
+    const labelValue = this.getLabelValue(option).toLowerCase();
     const splitSearch = searchInput.split(' ').filter(search => !!search);
     return !splitSearch.length || splitSearch.some(search => labelValue.includes(search.toLowerCase()));
   }

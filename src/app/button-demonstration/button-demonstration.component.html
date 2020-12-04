@@ -6,9 +6,17 @@
 
   <button yourButton [yourPopupAreaTrigger]>
     <your-popup-area position="left">
-      <your-confirmation-area (onSubmit)="onSubmit()" (onDecline)="onDecline()"></your-confirmation-area>
+      <your-confirmation-area (onSubmit)="onSubmit()" (onDecline)="onDecline()" yesText="Yes" noText="No">
+      </your-confirmation-area>
     </your-popup-area>
     Button with confirmation
+  </button>
+
+  <button yourButton color="success" yourPopupAreaTrigger="click">
+    BUTTON WITH OPTIONS
+    <your-popup-area position="bottom">
+      <your-options [options]="options"></your-options>
+    </your-popup-area>
   </button>
 
 
