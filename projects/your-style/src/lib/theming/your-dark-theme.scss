@@ -54,7 +54,7 @@ $dark-theme: (
   ),
 
   box_shadow: -5px 5px 10px 0 transparentize(darken($back, 10), 0.5),
-  body_gradient: linear-gradient(45deg, lighten($back, 12.55), $back) no-repeat fixed
+  body_gradient: linear-gradient(45deg, $back, lighten($back, 12.55)) no-repeat fixed
 );
 
 @include theme($dark-theme);
