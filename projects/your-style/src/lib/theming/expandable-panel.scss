@@ -1,0 +1,60 @@
+@import "config";
+
+@mixin expandable_panel_theme($theme) {
+  $default_scheme: get_color_scheme($theme, back);
+
+  .your-expandable-panel-label {
+    background: get_color($default_scheme);
+    border-color: get_color($default_scheme, b);
+    color: get_color($default_scheme, f);
+  }
+
+  .your-expandable-panel-content {
+    color: get_color($default_scheme, f);
+  }
+
+  @each $scheme_name in get_schemes_names($theme) {
+    $scheme: get_color_scheme($theme, $scheme_name);
+
+    .your-expandable-panel-color-#{$scheme_name} {
+      .your-expandable-panel-label {
+        background: get_color($scheme);
+        border-color: get_color($scheme, b);
+        color: get_color($scheme, f);
+      }
+
+      .your-expandable-panel-content {
+        color: get_color($scheme, f);
+      }
+    }
+  }
+}
+
+@mixin expandable_panel_style($style) {
+  $default_config_name: map-get($style, default_expandable_config);
+  $default_config: get_config_prop($style, expandable_panel_config, $default_config_name);
+  @include expandable_panel_config_style($default_config);
+
+  @each $config_name in get_config_names(get_config($style, expandable_panel_config)) {
+    $config: get_config_prop($style, expandable_panel_config, $config_name);
+    .your-expandable-panel-size-#{$config-name} {
+      @include expandable_panel_config_style($config);
+    }
+  }
+
+  .your-expandable-panel-label {
+    border-radius: map-get($style, border_radius);
+  }
+}
+
+@mixin expandable_panel_config_style($config) {
+  .your-expandable-panel-label {
+    padding: map-get($config, padding);
+    margin: map-get($config, margin);
+    font-size: map-get($config, font_size);
+  }
+
+  .your-expandable-panel-content {
+    font-size: map-get($config, font_size);
+  }
+}

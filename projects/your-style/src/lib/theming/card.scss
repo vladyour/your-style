@@ -22,13 +22,24 @@
 }
 
 @mixin card_theme($theme) {
-  $scheme: get_color_scheme($theme, back);
+  $default_scheme: get_color_scheme($theme, back);
 
   your-card {
-    $background: get_color($scheme);
-    background: $background;
+    background: get_color($default_scheme);
 
-    color: get_color($scheme, f);
+    color: get_color($default_scheme, f);
     box-shadow: get_box_shadow($theme);
+  }
+
+
+  @each $scheme_name in get_schemes_names($theme) {
+    $scheme: get_color_scheme($theme, $scheme_name);
+
+    your-card.your-card-color-#{$scheme_name} {
+      background: get_color($scheme);
+
+      color: get_color($scheme, f);
+      box-shadow: get_box_shadow($theme);
+    }
   }
 }

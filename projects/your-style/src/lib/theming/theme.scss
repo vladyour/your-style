@@ -5,6 +5,7 @@
 @import "checkbox";
 @import "drop-down-menu";
 @import "expandable-area";
+@import "expandable-panel";
 @import 'flex-box';
 @import 'font';
 @import "form-field";
@@ -29,6 +30,7 @@
   @include card_style($style);
   @include checkbox_style($style);
   @include drop_drown_style($style);
+  @include expandable_panel_style($style);
   @include font_style($style);
   @include form_field_style($style);
   @include info_box_style($style);
@@ -48,6 +50,7 @@
   @include checkbox_theme($theme);
   @include drop_down_theme($theme);
   @include expandable_area_theme($theme);
+  @include expandable_panel_theme($theme);
   @include form_field_theme($theme);
   @include info_box_theme($theme);
   @include link_theme($theme);

@@ -1,0 +1,12 @@
+<div class="your-expandable-panel-label" (click)="toggle()">
+  <span class="chevron-wrapper">
+  <i class="fas fa-chevron-right chevron {{animationState}}"></i>
+  </span>
+  <ng-content select="[expandable-panel-label]"></ng-content>
+</div>
+<div [@expandableAreaTrigger]="{value: animationState}">
+  <div class="your-expandable-panel-content">
+    <ng-content select="[expandable-panel-content]"></ng-content>
+  </div>
+</div>
+

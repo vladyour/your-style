@@ -3,6 +3,7 @@
 
 $back_scheme: (
   n: $back,
+  b: darken($back, 3),
   d: darken($back, 5),
   h: darken($back, 3),
   f: $font
@@ -10,6 +11,7 @@ $back_scheme: (
 
 $default_scheme: (
   n: $default,
+  b: darken($default, 3),
   d: darken(desaturate($default, 20), 10),
   h: lighten($default, 4),
   f: $font,
@@ -17,6 +19,7 @@ $default_scheme: (
 
 $secondary_scheme: (
   n: $secondary,
+  b: darken($secondary, 7),
   d: darken(desaturate($secondary, 20), 10),
   h: lighten($secondary, 4),
   f: $font,
@@ -24,6 +27,7 @@ $secondary_scheme: (
 
 $success_scheme: (
   n: $success,
+  b: darken($success, 3),
   d: darken(desaturate($success, 40), 10),
   h: lighten($success, 4),
   f: $font,
@@ -31,6 +35,7 @@ $success_scheme: (
 
 $warn_scheme: (
   n: $warn,
+  b: darken($warn, 6),
   d: darken(desaturate($warn, 40), 10),
   h: lighten($warn, 4),
   f: $font,
@@ -38,6 +43,7 @@ $warn_scheme: (
 
 $error_scheme: (
   n: $error,
+  b: darken($error, 7),
   d: darken(desaturate($error, 40), 10),
   h: lighten($error, 4),
   f: $font,

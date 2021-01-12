@@ -9,6 +9,7 @@ import {LoadingSkeletonDemonstrationComponent} from './loading/loading-skeleton-
 import {LoadingBarDemonstrationComponent} from './loading/loading-bar-demonstration/loading-bar-demonstration.component';
 import {PagesDemonstrationComponent} from './pagination/pages-demonstration/pages-demonstration.component';
 import {ExpandableAreaDemonstrationComponent} from './expandable-area-demonstration/expandable-area-demonstration.component';
+import {ExpandablePanelDemonstrationComponent} from './expandable-panel-demonstration/expandable-panel-demonstration.component';
 
 
 const routes: Routes = [
@@ -72,6 +73,10 @@ const routes: Routes = [
   {
     path: 'expandable-area',
     component: ExpandableAreaDemonstrationComponent
+  },
+  {
+    path: 'expandable-panel',
+    component: ExpandablePanelDemonstrationComponent
   }
 ];
 

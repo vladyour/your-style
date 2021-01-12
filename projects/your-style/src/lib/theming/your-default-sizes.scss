@@ -135,6 +135,23 @@ $navbar_config: (
     border_radius: 15px
   ),
 );
+$expandable_panel_config: (
+  s: (
+    padding: 5px,
+    margin: 2px 0,
+    font_size: 12px,
+  ),
+  m: (
+    padding: 10px,
+    margin: 2px 0,
+    font_size: 14px,
+  ),
+  l: (
+    padding: 15px,
+    margin: 2px 0,
+    font_size: 16px,
+  )
+);
 $page_config: (
   s: (
     pages_padding: 15px,
@@ -154,7 +171,7 @@ $page_config: (
 );
 
 $your_style: (
-  default_card_config: m,
+  default_card_config: l,
   card_config: $card_config,
 
   default_button_size: s,
@@ -180,6 +197,9 @@ $your_style: (
 
   navbar_config: $navbar_config,
   default_navbar_config: l,
+
+  expandable_panel_config: $expandable_panel_config,
+  default_expandable_config: m,
 
   page_config: $page_config,
   default_page_style: m,

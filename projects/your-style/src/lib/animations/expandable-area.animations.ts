@@ -19,5 +19,5 @@ export function expandableAreaAnimation() {
 const timingFunction = 'cubic-bezier( 0.5, 0, 0.8, 1)';
 
 export const expandingAnimation = animation([
-  animate(`500ms ${timingFunction}`)
+  animate(`350ms ${timingFunction}`)
 ]);
