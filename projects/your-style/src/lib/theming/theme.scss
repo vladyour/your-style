@@ -37,9 +37,10 @@
   @include loading_skeleton_style($style);
   @include multiple_select_style($style);
   @include navbar_style($style);
+  @include options_style($style);
   @include padding_and_margin_style($style);
   @include pages_style($style);
-  @include options_style($style);
+  @include table_style($style);
 }
 
 @mixin theme($theme) {

@@ -169,6 +169,20 @@ $page_config: (
     page_number_margin: 2px,
   )
 );
+$table_config: (
+  s: (
+    cell_padding: 8px,
+    input_cell_padding: 6px,
+  ),
+  m: (
+    cell_padding: 12px,
+    input_cell_padding: 8px,
+  ),
+  l: (
+    cell_padding: 14px,
+    input_cell_padding: 10px,
+  ),
+);
 
 $your_style: (
   default_card_config: l,
@@ -203,6 +217,9 @@ $your_style: (
 
   page_config: $page_config,
   default_page_style: m,
+
+  table_config: $table_config,
+  default_table_config: m,
 
   border_radius: 4px
 );

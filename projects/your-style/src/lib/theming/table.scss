@@ -40,3 +40,36 @@
     }
   }
 }
+
+@mixin table_style($style) {
+  $default_size_name: map-get($style, default_table_config);
+  $table_config: get_config($style, table_config);
+  $font_config: get_config($style, font_size_config);
+  $default_font_size: map-get($font_config, $default_size_name);
+
+  @include table_size_style($default_font_size, $table_config, $default_size_name);
+
+  @each $size_name in get_config_names($table_config) {
+    .your-table-size-#{$size_name} {
+      $font_size: map-get($font_config, $size_name);
+      @include table_size_style($font_size, $table_config, $size_name);
+    }
+  }
+}
+
+@mixin table_size_style($font_size, $config, $size_name) {
+  .your-table-header-cell {
+    font-size: $font_size;
+    padding: get_config_prop($config, $size_name, cell_padding);
+  }
+
+  .your-table-result-cell {
+    font-size: $font_size;
+    padding: get_config_prop($config, $size_name, cell_padding);
+  }
+
+  .your-table-input {
+    font-size: calc(#{$font_size} - 2px);
+    padding: get_config_prop($config, $size_name, input_cell_padding);
+  }
+}

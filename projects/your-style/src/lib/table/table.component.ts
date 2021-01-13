@@ -1,12 +1,13 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {StyleBase} from '../core/style-base';
 
 @Component({
   selector: 'your-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit, OnChanges {
+export class TableComponent extends StyleBase implements OnInit, OnChanges {
 
   private _data: any[];
   get data(): any[] {
@@ -56,13 +57,16 @@ export class TableComponent implements OnInit, OnChanges {
   filter: any = {};
   sort: any = {};
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, el: ElementRef, renderer: Renderer2) {
+    super(el, renderer);
+  }
 
   ngOnInit() {
     this.setFilter(this.route.snapshot.queryParams);
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    super.ngOnChanges(changes);
     if (!!changes.data && !!changes.data.currentValue) {
       if ((!changes.displayColumns || !changes.displayColumns.currentValue) && !this.displayedColumns.length) {
         this.displayedColumns = Object.keys(changes.data.currentValue[0] || []);
@@ -107,4 +111,7 @@ export class TableComponent implements OnInit, OnChanges {
     });
   }
 
+  getTagPrefix(): string {
+    return 'your-table';
+  }
 }
