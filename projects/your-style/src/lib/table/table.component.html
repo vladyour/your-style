@@ -1,24 +1,24 @@
 <table class="your-table" *ngIf="!!data && !!data.length">
   <thead class="your-table-header">
   <tr class="your-table-header-row">
-    <td class="your-table-header-cell">№</td>
-    <td class="your-table-header-cell" *ngFor="let column of displayedColumns" (click)="changeSort(column)">
-      {{column}}
+    <td class="your-table-header-cell" *ngIf="!noNumeration">№</td>
+    <td class="your-table-header-cell" *ngFor="let column of displayedColumns; let i = index" (click)="changeSort(column)">
+      {{columnNames[i] || column}}
       <span class="sort">
         <i class="fas fa-sort-up sort-icon" [ngClass]="{'asc': sort[column] > 0}"></i>
       </span>
     </td>
   </tr>
-  <tr class="your-table-filter-row" >
-    <td class="your-table-filter-cell"></td>
-    <td class="your-table-filter-cell" *ngFor="let column of displayedColumns;">
-      <input [(ngModel)]="filter[column]" (ngModelChange)="onFilterChange()" placeholder="{{column}} filter" class="your-table-input"/>
+  <tr class="your-table-filter-row" *ngIf="filterEnabled">
+    <td class="your-table-filter-cell" *ngIf="!noNumeration"></td>
+    <td class="your-table-filter-cell" *ngFor="let column of displayedColumns; let i = index">
+      <input [(ngModel)]="filter[column]" (ngModelChange)="onFilterChange()" placeholder="{{columnNames[i] || column}} filter" class="your-table-input"/>
     </td>
   </tr>
   </thead>
   <tbody>
   <tr class="your-table-result-row" *ngFor="let row of (data | tableFilter: filter); let i = index">
-    <td class="your-table-result-cell">{{i + 1}}</td>
+    <td class="your-table-result-cell" *ngIf="!noNumeration">{{i + 1}}</td>
     <td class="your-table-result-cell" *ngFor="let column of displayedColumns">{{row[column]}}</td>
   </tr>
   </tbody>

@@ -10,6 +10,7 @@ import {LoadingBarDemonstrationComponent} from './loading/loading-bar-demonstrat
 import {PagesDemonstrationComponent} from './pagination/pages-demonstration/pages-demonstration.component';
 import {ExpandableAreaDemonstrationComponent} from './expandable-area-demonstration/expandable-area-demonstration.component';
 import {ExpandablePanelDemonstrationComponent} from './expandable-panel-demonstration/expandable-panel-demonstration.component';
+import {TableDemonstrationComponent} from './table-demonstration/table-demonstration.component';
 
 
 const routes: Routes = [
@@ -77,7 +78,11 @@ const routes: Routes = [
   {
     path: 'expandable-panel',
     component: ExpandablePanelDemonstrationComponent
-  }
+  },
+  {
+    path: 'table',
+    component: TableDemonstrationComponent
+  },
 ];
 
 @NgModule({

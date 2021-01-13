@@ -25,6 +25,7 @@ import { PagesDemonstrationComponent } from './pagination/pages-demonstration/pa
 import { ExpandableAreaDemonstrationComponent } from './expandable-area-demonstration/expandable-area-demonstration.component';
 import {FormModule} from '../../projects/your-style/src/lib/form/form.module';
 import { ExpandablePanelDemonstrationComponent } from './expandable-panel-demonstration/expandable-panel-demonstration.component';
+import { TableDemonstrationComponent } from './table-demonstration/table-demonstration.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ExpandablePanelDemonstrationComponent } from './expandable-panel-demons
     PagesDemonstrationComponent,
     ExpandableAreaDemonstrationComponent,
     ExpandablePanelDemonstrationComponent,
+    TableDemonstrationComponent,
   ],
   imports: [
     BrowserModule,

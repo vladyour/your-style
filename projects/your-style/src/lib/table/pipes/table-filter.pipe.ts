@@ -23,8 +23,8 @@ export class TableFilterPipe implements PipeTransform {
         return false;
       }
 
-      const splitFilterValue = filterValue.trim().split(' ');
-      return splitFilterValue.some(v => cellValue.toString().includes(v));
+      const splitFilterValue = filterValue.trim().split(' ').map(v => v.toLowerCase());
+      return splitFilterValue.some(v => cellValue.toString().toLowerCase().includes(v));
     });
   }
 }

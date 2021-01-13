@@ -8,11 +8,50 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class TableComponent implements OnInit, OnChanges {
 
+  private _data: any[];
+  get data(): any[] {
+    return this._data;
+  }
   @Input()
-  data: any[];
+  set data(value: any[]) {
+    this._data = value;
+  }
 
+  private _displayedColumns = [];
+  get displayedColumns(): any[] {
+    return this._displayedColumns;
+  }
   @Input()
-  displayedColumns = [];
+  set displayedColumns(value: any[]) {
+    this._displayedColumns = value;
+  }
+
+  private _columnNames: string[] = [];
+  get columnNames(): string[] {
+    return this._columnNames;
+  }
+  @Input()
+  set columnNames(value: string[]) {
+    this._columnNames = value;
+  }
+
+  private _noNumeration: boolean = false;
+  get noNumeration(): boolean {
+    return this._noNumeration;
+  }
+  @Input()
+  set noNumeration(value: boolean) {
+    this._noNumeration = value;
+  }
+
+  private _filterEnabled: boolean = true;
+  get filterEnabled(): boolean {
+    return this._filterEnabled;
+  }
+  @Input()
+  set filterEnabled(value: boolean) {
+    this._filterEnabled = value;
+  }
 
   filter: any = {};
   sort: any = {};
@@ -25,8 +64,12 @@ export class TableComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (!!changes.data && !!changes.data.currentValue) {
-      this.displayedColumns = Object.keys(changes.data.currentValue[0] || []);
-      this.data = changes.data.currentValue;
+      if ((!changes.displayColumns || !changes.displayColumns.currentValue) && !this.displayedColumns.length) {
+        this.displayedColumns = Object.keys(changes.data.currentValue[0] || []);
+      }
+      if ((!changes.columnNames || !changes.columnNames.currentValue) && !this.columnNames.length) {
+        this.columnNames = this.displayedColumns;
+      }
     }
   }
 
