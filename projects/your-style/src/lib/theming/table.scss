@@ -19,7 +19,7 @@
   }
 
   .your-table-result-row {
-    &:nth-child(2n+1) {
+    &:nth-child(2n) {
       background: darken($background, 1);
     }
 
@@ -56,14 +56,16 @@
 
 @mixin table_size_style($config, $size_name) {
   $font_size: get_config_prop($config, $size_name, font_size);
+  $padding: get_config_prop($config, $size_name, cell_padding);
+
   .your-table-header-cell {
-    font-size: $font_size;
-    padding: get_config_prop($config, $size_name, cell_padding);
+    font-size: calc(#{$font_size} + 1px);
+    padding: calc(#{$padding} + 2px);
   }
 
   .your-table-result-cell {
     font-size: $font_size;
-    padding: get_config_prop($config, $size_name, cell_padding);
+    padding: $padding;
   }
 
   .your-table-input {
