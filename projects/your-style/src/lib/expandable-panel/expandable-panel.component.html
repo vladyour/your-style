@@ -1,5 +1,5 @@
-<div class="your-expandable-panel-label" (click)="toggle()">
-  <span class="chevron-wrapper">
+<div class="your-expandable-panel-label" (click)="toggle()" [ngClass]="{expandable: expandable}">
+  <span class="chevron-wrapper" *ngIf="expandable">
   <i class="fas fa-chevron-right chevron {{animationState}}"></i>
   </span>
   <ng-content select="[expandable-panel-label]"></ng-content>

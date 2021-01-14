@@ -4,7 +4,10 @@
 
   border-width: 1px;
   border-style: solid;
-  cursor: pointer;
+
+  &.expandable {
+    cursor: pointer;
+  }
 
   .chevron-wrapper {
     padding-right: 10px;
@@ -13,10 +16,6 @@
       font-size: 10px;
 
       transition: transform 250ms ease-in-out;
-
-      &.collapsed {
-
-      }
 
       &.expanded {
         transform: rotate(90deg);

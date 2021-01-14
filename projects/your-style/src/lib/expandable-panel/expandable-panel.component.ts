@@ -34,6 +34,15 @@ export class ExpandablePanelComponent extends StyleBase implements OnInit {
     this._closeDescendantsOnClose = value;
   }
 
+  private _expandable: boolean = true;
+  get expandable(): boolean {
+    return this._expandable;
+  }
+  @Input()
+  set expandable(value: boolean) {
+    this._expandable = value;
+  }
+
   @ContentChildren(ExpandablePanelComponent, {descendants: true})
   innerPanels: QueryList<ExpandablePanelComponent>;
 
@@ -44,6 +53,10 @@ export class ExpandablePanelComponent extends StyleBase implements OnInit {
   ngOnInit(): void {}
 
   toggle() {
+    if (!this.expandable) {
+      return;
+    }
+
     if (this.state) {
       this.close();
     } else {
